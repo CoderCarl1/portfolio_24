@@ -1,0 +1,18 @@
+@use '../abstracts/' as *;
+
+.skiplink {
+  position: fixed;
+  transition: transform 250ms ease;
+  a {
+    padding: size(8) size(16);
+    background-color: clr(neutral, 100);
+  }
+  a:focus {
+    outline: 2px solid clr(primary, 400);
+    outline-offset: -2px;
+  }
+  &:not(:focus-within) {
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+}

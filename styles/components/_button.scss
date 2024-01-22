@@ -1,0 +1,71 @@
+@use '../abstracts/' as *;
+
+.button {
+  --_button-bg-color: var(--button-bg-color, transparent);
+  --_button-color: var(--button-color, #{clr(primary, 400)});
+  --_button-border-color: var(--button-border-color, #{clr(primary, 100)});
+  --_button-outline-color: var(--button-color, #{clr(primary, 100)});
+  --_button-border-radius: var(--button-border-radius, 0.125em);
+  --_button-padding: var(--button-padding, 0.5em 1.125em);
+
+  background-color: var(--_button-bg-color);
+  color: var(--_button-color);
+  cursor: pointer;
+  padding: var(--_button-padding);
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 1px solid var(--_button-border-color);
+  border-radius: var(--_button-border-radius);
+  text-transform: capitalize;
+}
+.button.no-border {
+  --button-border-color: transparent;
+}
+.button.icon{
+  --button-padding: 0;
+}
+:where(.button:hover:not([disabled])) {
+  --button-bg-color: #fff;
+
+  box-shadow:
+    -0.125em -0.125em 0.5em 0 var(--_bg-color),
+    0.125em 0.125em 0.5em 0 var(--_border-color);
+}
+
+.button:active:not([disabled]) {
+  outline: 1px solid var(--_outline-color);
+  outline-offset: -1px;
+  transform: scale(0.975);
+  transition:
+    background-color 0.1s ease-in-out,
+    color 0.1s ease-in-out;
+}
+
+.button[disabled] {
+  --button-color: #{clr(neutral, 200)};
+  font-style: italic;
+  cursor: default;
+}
+
+.button.primary {
+  --button-bg-color: #{clr(primary, 100)};
+  --button-color: #{clr(primary, 400)};
+  --button-border-color: #{clr(primary, 200)};
+  box-shadow: none;
+
+  &:hover:not([disabled]) {
+    --button-bg-color: #{clr(primary, 100)};
+  }
+}
+
+.button.secondary {
+  --button-bg-color: #{clr(secondary, 200)};
+  --button-color: #{clr(secondary, 400)};
+  --button-border-color: #{clr(secondary, 300)};
+  box-shadow: none;
+
+  &:hover:not([disabled]) {
+    --button-bg-color: #{clr(secondary, 100)};
+  }
+}

@@ -1,0 +1,6 @@
+@use '../abstracts/' as *;
+
+.containing-wrapper {
+  width: min(100% - 2rem, bp(large));
+  margin-inline: auto;
+}
