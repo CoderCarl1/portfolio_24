@@ -4,3 +4,18 @@
   width: min(100% - 2rem, bp(large));
   margin-inline: auto;
 }
+
+.container-large {
+  width: min(100% - 2rem, bp(medium));
+  margin-inline: auto;
+}
+
+.container-medium {
+  width: min(100% - 2rem, bp(medium));
+  margin-inline: auto;
+}
+
+.container-small {
+  width: min(100% - 2rem, bp(small));
+  margin-inline: auto;
+}
