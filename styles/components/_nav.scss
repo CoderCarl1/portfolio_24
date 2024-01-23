@@ -1,0 +1,9 @@
+@use '../abstracts/' as *;
+
+.header {
+  padding: size(8);
+  .logo {
+    width: 42px;
+    aspect-ratio: 1;
+  }
+}

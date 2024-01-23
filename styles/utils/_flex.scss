@@ -1,0 +1,60 @@
+@use '../abstracts/' as *;
+
+.flex {
+  display: flex;
+  justify-content: var(--justify-content);
+  align-items: var(--align-content);
+  gap: var(--gap, #{size(8)});
+
+  >* {
+    flex-basis: var(--flex-basis, auto);
+  }
+}
+
+.justify-center {
+  --justify-content: center;
+}
+
+.justify-between {
+  --justify-content: space-between;
+}
+
+.justify-evenly {
+  --justify-content: space-evenly;
+}
+
+.align-center {
+  --align-items: center;
+}
+
+.align-top {
+  --align-items: flex-start;
+}
+
+.align-bottom {
+  --align-items: flex-end;
+}
+
+.basis\:20 {
+  --flex-basis: 20%;
+}
+
+.basis\:40 {
+  --flex-basis: 40%;
+}
+
+.basis\:50 {
+  --flex-basis: 50%;
+}
+
+.basis\:60 {
+  --flex-basis: 60%;
+}
+
+.basis\:80 {
+  --flex-basis: 80%;
+}
+
+.basis\:100 {
+  --flex-basis: 100%;
+}
