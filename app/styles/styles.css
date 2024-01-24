@@ -1,3 +1,7 @@
+body {
+  font-size: 1.125rem;
+}
+
 *,
 *::after,
 *::before {
@@ -22,7 +26,7 @@ caption,
 dd,
 blockquote {
   max-width: 60ch;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 /* Remove default margin */
@@ -38,6 +42,10 @@ dl,
 dd {
   margin: 0;
   font-weight: 400;
+}
+
+ul {
+  padding-inline-start: 1em;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -56,6 +64,10 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+}
+
+p {
+  text-align: left;
 }
 
 /* A elements that don't have a class get default styles */
@@ -137,17 +149,215 @@ table {
     page-break-inside: avoid;
   }
 }
+.box-shadow-1 {
+  box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.012), 0px 22px 18px rgba(0, 0, 0, 0.018), 0px 100px 80px rgba(0, 0, 0, 0.03);
+}
+
+.box-shadow-2 {
+  box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.016), 0px 22px 18px rgba(0, 0, 0, 0.024), 0px 100px 80px rgba(0, 0, 0, 0.04);
+}
+
+.box-shadow-3 {
+  box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.02), 0px 22px 18px rgba(0, 0, 0, 0.03), 0px 100px 80px rgba(0, 0, 0, 0.05);
+}
+
+.box-shadow-4 {
+  box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.03), 0px 22px 18px rgba(0, 0, 0, 0.042), 0px 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+.box-shadow-5 {
+  box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.04), 0px 22px 18px rgba(0, 0, 0, 0.06), 0px 100px 80px rgba(0, 0, 0, 0.1);
+}
+
+.even-columns {
+  --gap: 1rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+.even-columns-row {
+  --gap: 1rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+@media screen and (width < 50em) {
+  .even-columns-row {
+    grid-auto-flow: row;
+  }
+}
+
 .containing-wrapper {
-  width: min(100% - 2rem, 80em);
+  width: clamp(280px, 100% - 2rem, 80em);
   margin-inline: auto;
+}
+
+.container-large {
+  width: min(100% - 2rem, 50em);
+  margin-inline: auto;
+}
+
+.container-medium {
+  width: min(100% - 2rem, 50em);
+  margin-inline: auto;
+}
+
+.container-small {
+  width: min(100% - 2rem, 30em);
+  margin-inline: auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: var(--justify-content);
+  align-items: var(--align-content);
+  gap: var(--gap, 0.5rem);
+}
+.flex > * {
+  flex-basis: var(--flex-basis, auto);
+}
+
+.grow\:0 {
+  flex-grow: 0;
+}
+
+.shrink\:0 {
+  flex-shrink: 0;
+}
+
+.justify\:center {
+  --justify-content: center;
+}
+
+.justify\:between {
+  --justify-content: space-between;
+}
+
+.justify\:evenly {
+  --justify-content: space-evenly;
+}
+
+.align\:center {
+  --align-items: center;
+}
+
+.align\:top {
+  --align-items: flex-start;
+}
+
+.align\:bottom {
+  --align-items: flex-end;
+}
+
+.basis\:20 {
+  --flex-basis: 20%;
+}
+
+.basis\:40 {
+  --flex-basis: 40%;
+}
+
+.basis\:50 {
+  --flex-basis: 50%;
+}
+
+.basis\:60 {
+  --flex-basis: 60%;
+}
+
+.basis\:80 {
+  --flex-basis: 80%;
+}
+
+.basis\:100 {
+  --flex-basis: 100%;
 }
 
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-spacer, 1rem);
 }
 
+.flow\:8 > *:where(:not(:first-child)) {
+  margin-top: 0.5rem;
+}
+
+.flow\:16 > *:where(:not(:first-child)) {
+  margin-top: 1rem;
+}
+
+.flow\:32 > *:where(:not(:first-child)) {
+  margin-top: 2rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.align\:center {
+  align-items: center;
+}
+
+.justify\:center {
+  justify-content: center;
+}
+
+.margin-x\:auto {
+  margin-inline: auto;
+}
+
 .uppercase {
   text-transform: uppercase;
+}
+
+span.text-left,
+span.text-center {
+  display: block;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.fs-900 {
+  font-size: clamp(2.5rem, 0.5rem + 10vw, 5rem);
+  line-height: 1.1;
+}
+
+.fs-800 {
+  font-size: clamp(2.5rem, 0.5rem + 7vw, 3.75rem);
+  line-height: 1.1;
+}
+
+.fs-600 {
+  font-size: clamp(1.4rem, 0.5rem + 3vw, 1.6875rem);
+}
+
+.fs-500 {
+  font-size: 1.3125rem;
+}
+
+.fs-400 {
+  font-size: 1.125rem;
+}
+
+.fs-300 {
+  font-size: 1rem;
+}
+
+.fs-200 {
+  font-size: 0.65rem;
+}
+
+.decoration\:underline {
+  text-decoration: underline;
+}
+
+.decoration\:none {
+  text-decoration: none;
 }
 
 .visually-hidden:not(:focus):not(:active) {
@@ -160,13 +370,23 @@ table {
   width: 1px;
 }
 
+.about__image__random {
+  margin-inline: auto;
+  height: 400px;
+}
+@media screen and (width > 30em) {
+  .about__image__random {
+    height: 250px;
+  }
+}
+
 .button {
   --_button-bg-color: var(--button-bg-color, transparent);
-  --_button-color: var(--button-color, hsl(250, 52%, 25%));
-  --_button-border-color: var(--button-border-color, hsla(245, 88%, 50%, 0.15));
-  --_button-outline-color: var(--button-color, hsla(245, 88%, 50%, 0.15));
+  --_button-color: var(--button-color, rgb(42, 31, 97));
+  --_button-border-color: var(--button-border-color, rgba(34, 15, 240, 0.15));
+  --_button-outline-color: var(--button-color, rgba(34, 15, 240, 0.15));
   --_button-border-radius: var(--button-border-radius, 0.125em);
-  --_button-padding: var(--button-padding, 0.5em 1.125em);
+  --_button-padding: var(--button-padding, 0.25em .5em);
   background-color: var(--_button-bg-color);
   color: var(--_button-color);
   cursor: pointer;
@@ -189,52 +409,284 @@ table {
 
 :where(.button:hover:not([disabled])) {
   --button-bg-color: #fff;
-  box-shadow: -0.125em -0.125em 0.5em 0 var(--_bg-color), 0.125em 0.125em 0.5em 0 var(--_border-color);
+  box-shadow: -0.125em -0.125em 0.5em 0 var(--_button-bg-color), 0.125em 0.125em 0.5em 0 var(--_button-border-color);
 }
 
 .button:active:not([disabled]) {
-  outline: 1px solid var(--_outline-color);
+  outline: 1px solid var(--_button-outline-color);
   outline-offset: -1px;
   transform: scale(0.975);
   transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
 }
 
 .button[disabled] {
-  --button-color: hsl(0, 0%, 80%);
+  --button-color: rgb(204, 204, 204);
   font-style: italic;
   cursor: default;
 }
 
 .button.primary {
-  --button-bg-color: hsla(245, 88%, 50%, 0.15);
-  --button-color: hsl(250, 52%, 25%);
-  --button-border-color: hsl(250, 52%, 40%);
+  --button-bg-color: rgba(34, 15, 240, 0.15);
+  --button-color: rgb(42, 31, 97);
+  --button-border-color: rgb(67, 49, 155);
   box-shadow: none;
 }
 .button.primary:hover:not([disabled]) {
-  --button-bg-color: hsla(245, 88%, 50%, 0.15);
+  --button-bg-color: rgba(34, 15, 240, 0.15);
 }
 
 .button.secondary {
-  --button-bg-color: hsl(158, 64%, 76%);
-  --button-color: hsl(167, 7%, 24%);
-  --button-border-color: hsl(139, 15%, 50%);
+  --button-bg-color: rgb(155, 233, 204);
+  --button-color: rgb(57, 65, 64);
+  --button-border-color: rgb(108, 147, 120);
   box-shadow: none;
 }
 .button.secondary:hover:not([disabled]) {
-  --button-bg-color: hsl(139, 100%, 94%);
+  --button-bg-color: rgb(224, 255, 234);
+}
+
+.hero {
+  --animation-timing: 350ms;
+  --height: calc(100dvh - 3rem);
+  width: 100%;
+}
+.hero .hero__text {
+  position: relative;
+  height: fit-content;
+  padding: 1rem 1rem;
+  text-align: center;
+  width: min(100% - 1em, 20ch);
+  margin-inline: auto;
+}
+.hero .hero__text:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(224, 255, 234, 0.25);
+  border-radius: 12px;
+  z-index: -1;
+}
+.hero .hero__image {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  height: fit-content;
+}
+.hero .hero__image:before, .hero .hero__image:after {
+  content: "";
+  position: absolute;
+  border-radius: 8px;
+  opacity: 0;
+  transition-duration: 0s;
+  transition-delay: var(--animation-timing);
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0, 0, 0, 2.54);
+  mix-blend-mode: hard-light;
+}
+.hero .hero__image:before {
+  inset: 12% 10% 12.5% 10%;
+  outline: 8px solid rgb(252, 252, 252);
+  border-radius: 8px;
+  transform: rotate(16deg);
+  z-index: 2;
+  background-color: rgb(108, 147, 120);
+}
+.hero .hero__image:after {
+  top: 10%;
+  left: 20%;
+  height: 50%;
+  aspect-ratio: 1;
+  outline: 8px solid white;
+  transform: rotate(-25deg);
+  z-index: -1;
+  background-color: rgb(155, 233, 204);
+}
+.hero .hero__image--photo {
+  transition: transform var(--animation-timing) ease-in-out;
+}
+.hero .hero__image--blobs {
+  --blob-color-1: #5cdbac;
+  --blob-color-2: rgb(155, 233, 204);
+  --blob-color-3: #daf7ec;
+  position: absolute;
+  z-index: -1;
+  height: 50%;
+  width: 300%;
+  top: 0;
+  left: -200%;
+  display: grid;
+  gap: 0;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  transition: transform var(--animation-timing) ease-in-out;
+}
+.hero .hero__image--blobs > svg {
+  height: 150%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity var(--animation-timing) ease-in-out;
+}
+.hero .hero__image--blobs > svg:nth-child(3) {
+  opacity: 1;
+}
+.hero .hero__image--blobs > svg:nth-child(1) {
+  fill: var(--blob-color-1);
+}
+.hero .hero__image--blobs > svg:nth-child(2) {
+  fill: var(--blob-color-2);
+}
+.hero .hero__image--blobs > svg:nth-child(3) {
+  fill: var(--blob-color-3);
+}
+.hero:where(:hover, :focus-within) .hero__image:before,
+.hero:where(:hover, :focus-within) .hero__image:after {
+  opacity: 1;
+}
+.hero:where(:hover, :focus-within) .hero__image--photo {
+  transform: scale(105%);
+}
+.hero:where(:hover, :focus-within) .hero__image--blobs {
+  transform: translateX(67.5%);
+}
+.hero:where(:hover, :focus-within) .hero__image--blobs > svg {
+  opacity: 1;
+}
+@media screen and (width < 50em) {
+  .hero .hero__image {
+    width: fit-content;
+  }
+  .hero .hero__image--photo {
+    height: 25vh;
+  }
+}
+@media screen and (min-width: 50em) {
+  .hero {
+    --flow-spacer: 0;
+    height: var(--height, 100dvh);
+  }
+  .hero .hero__text:after {
+    background-color: transparent;
+  }
+}
+
+.header {
+  padding: 1rem 0.5rem;
+  height: 3rem;
+  position: sticky;
+  top: 0;
+  background-color: rgba(252, 252, 252, 0.75);
+  z-index: 99;
+}
+.header .logo__image {
+  width: 64px;
+  aspect-ratio: 1;
+}
+.header .logo__image img {
+  transform: translateY(-0.5em);
+}
+.header .logo__heading {
+  align-self: center;
+}
+
+@media screen and (width < 30em) {
+  .header {
+    padding: 0.5rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 5lh;
+  }
+  .header .nav {
+    flex-basis: 100%;
+  }
+}
+.section {
+  padding: 1rem 0.5rem;
+}
+.section .fun-underline {
+  position: relative;
+  display: inline-block;
+}
+.section .fun-underline:nth-child(1):after {
+  background-color: hsl(4, 45%, 50%);
+}
+.section .fun-underline:nth-child(2):after {
+  background-color: hsl(104, 45%, 50%);
+}
+.section .fun-underline:nth-child(3):after {
+  background-color: hsl(204, 45%, 50%);
+}
+.section .fun-underline:nth-child(4):after {
+  background-color: hsl(304, 45%, 50%);
+}
+.section .fun-underline:nth-child(5):after {
+  background-color: hsl(154, 45%, 50%);
+}
+.section .fun-underline:nth-child(6):after {
+  background-color: hsl(254, 45%, 50%);
+}
+.section .fun-underline:nth-child(7):after {
+  background-color: hsl(354, 45%, 50%);
+}
+.section .fun-underline:nth-child(8):after {
+  background-color: hsl(54, 45%, 50%);
+}
+.section .fun-underline:nth-child(9):after {
+  background-color: hsl(4, 45%, 50%);
+}
+.section .fun-underline:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1lh;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+  transform-origin: bottom right;
+}
+.section:where(:focus-within, :hover) .fun-underline:nth-child(1):after {
+  transition-delay: 0ms;
+}
+.section:where(:focus-within, :hover) .fun-underline:nth-child(2):after {
+  transition-delay: 250ms;
+}
+.section:where(:focus-within, :hover) .fun-underline:nth-child(3):after {
+  transition-delay: 500ms;
+}
+.section:where(:focus-within, :hover) .fun-underline:nth-child(4):after {
+  transition-delay: 750ms;
+}
+.section:where(:focus-within, :hover) .fun-underline:nth-child(5):after {
+  transition-delay: 1000ms;
+}
+.section:where(:focus-within, :hover) .fun-underline:nth-child(6):after {
+  transition-delay: 1250ms;
+}
+.section:where(:focus-within, :hover) .fun-underline:nth-child(7):after {
+  transition-delay: 1500ms;
+}
+.section:where(:focus-within, :hover) .fun-underline:nth-child(8):after {
+  transition-delay: 1750ms;
+}
+.section:where(:focus-within, :hover) .fun-underline:nth-child(9):after {
+  transition-delay: 2000ms;
+}
+.section:where(:focus-within, :hover) .fun-underline:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .skiplink {
   position: fixed;
   transition: transform 250ms ease;
+  z-index: 1;
 }
 .skiplink a {
   padding: 0.5rem 1rem;
-  background-color: hsl(0, 0%, 99%);
+  background-color: rgb(252, 252, 252);
 }
 .skiplink a:focus {
-  outline: 2px solid hsl(250, 52%, 25%);
+  outline: 2px solid rgb(42, 31, 97);
   outline-offset: -2px;
 }
 .skiplink:not(:focus-within) {

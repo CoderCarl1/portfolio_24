@@ -1,9 +1,33 @@
 @use '../abstracts/' as *;
 
 .header {
-  padding: size(8);
-  .logo {
-    width: 42px;
+  padding: size(16) size(8);
+  height: size(48);
+  position: sticky;
+  top: 0;
+  background-color: rgba(clr(neutral, 100), 0.75);
+z-index: 99;
+  .logo__image {
+    width: 64px;
     aspect-ratio: 1;
+    img {
+      transform: translateY(-0.5em);
+
+    }
+  }
+  .logo__heading {
+    align-self: center;
+  }
+}
+
+@media screen and (width < bp(small)) {
+  .header {
+    padding: size(8) 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 5lh;
+    .nav {
+      flex-basis: 100%;
+    }
   }
 }

@@ -1,6 +1,17 @@
-.even-columns {
+@use '../abstracts/' as *;
+
+@mixin even-columns {
+  --gap: #{size(16)};
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
-  gap: var(--gap, #{size(16)});
+}
+.even-columns {
+  @include even-columns();
+  &-row {
+    @include even-columns();
+    @media screen and (width < bp(medium)){
+      grid-auto-flow: row;
+    }
+  }
 }

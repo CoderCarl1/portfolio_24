@@ -6,7 +6,7 @@
   --_button-border-color: var(--button-border-color, #{clr(primary, 100)});
   --_button-outline-color: var(--button-color, #{clr(primary, 100)});
   --_button-border-radius: var(--button-border-radius, 0.125em);
-  --_button-padding: var(--button-padding, 0.5em 1.125em);
+  --_button-padding: var(--button-padding, 0.25em .5em);
 
   background-color: var(--_button-bg-color);
   color: var(--_button-color);
@@ -29,12 +29,12 @@
   --button-bg-color: #fff;
 
   box-shadow:
-    -0.125em -0.125em 0.5em 0 var(--_bg-color),
-    0.125em 0.125em 0.5em 0 var(--_border-color);
+    -0.125em -0.125em 0.5em 0 var(--_button-bg-color),
+    0.125em 0.125em 0.5em 0 var(--_button-border-color);
 }
 
 .button:active:not([disabled]) {
-  outline: 1px solid var(--_outline-color);
+  outline: 1px solid var(--_button-outline-color);
   outline-offset: -1px;
   transform: scale(0.975);
   transition:

@@ -1,0 +1,10 @@
+@use '../abstracts/' as *;
+
+.about__image__random {
+  margin-inline: auto;
+  height: 400px;
+  @media screen and (width > bp(small)) {
+    height: 250px;
+  }
+}
+

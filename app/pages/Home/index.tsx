@@ -7,9 +7,7 @@ export default function Home(){
       <SkipLink  />
       <Nav />
       <Hero />
-      <h1>Coder Carl</h1>
       <main id="main">
-
       <About />
       <Projects />
       <Contact />

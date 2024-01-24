@@ -1,0 +1,12 @@
+.img\:fade-in {
+   // fade-in on scroll
+   animation: fade-in linear;
+   animation-timeline: view();
+   animation-range-start: contain;
+   animation-range-end: contain;
+}
+
+@keyframes fade-in {
+  from {scale: .8; opacity: 0;}
+  to  {scale: 1; opacity: 1;}
+}

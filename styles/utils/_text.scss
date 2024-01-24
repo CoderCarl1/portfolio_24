@@ -1,3 +1,15 @@
 .uppercase {
   text-transform: uppercase;
 }
+
+span.text-left,
+span.text-center {
+  display: block;
+}
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}

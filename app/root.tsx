@@ -24,7 +24,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="containing-wrapper">
+      <body className="containing-wrapper flow:16">
         <Outlet />
         <ScrollRestoration />
         <Scripts />

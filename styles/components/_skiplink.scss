@@ -3,6 +3,7 @@
 .skiplink {
   position: fixed;
   transition: transform 250ms ease;
+  z-index: 1;
   a {
     padding: size(8) size(16);
     background-color: clr(neutral, 100);
