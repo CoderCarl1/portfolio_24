@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 @each $size-name, $size-value in $font-sizes {
-  .fs-#{$size-name} { 
+  .fs\:#{$size-name} { 
     font-size: $size-value;
     @if $size-name > 600 {
       line-height: 1.1;

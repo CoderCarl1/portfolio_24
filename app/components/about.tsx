@@ -8,12 +8,12 @@ export default function About() {
 
   return (
     <Section id="about">
-      <h2 className="[ fs-800 bold ]">About</h2>
-      <p className="[ fs-500 ]">I am a Full stack developer with a love 💗 of <span className="[ fun-underline ]">web development</span>, <span className="[ fun-underline ]">Accessibility</span>, and just <span className="[ fun-underline ]">making things fun to use</span>.</p>
+      <h2 className="[ fs:800 bold ]">About</h2>
+      <p className="[ fs:500 ]">I am a Full stack developer with a love 💗 of <span className="[ fun-underline ]">web development</span>, <span className="[ fun-underline ]">Accessibility</span>, and just <span className="[ fun-underline ]">making things fun to use</span>.</p>
 
       <div className="[ even-columns-row ]">
         <div className="[ section__child ][ flow:16 ]">
-          <h3 className="[ decoration:underline fs-500 bold ]">Professional Information</h3>
+          <h3 className="[ decoration:underline fs:500 bold ]">Professional Information</h3>
           <p>For the last year and a half, I have been Working across the Back and Front ends with: </p>
           <ul>
             <li>
@@ -26,7 +26,7 @@ export default function About() {
           <p>Previously roles required work with Shopify, and wordpress</p>
         </div>
         <div className="[ section__child ][ flow:16 ]">
-          <h3 className="[ decoration:underline fs-500 bold ]">Personal <i>(out of worktime)</i> learning</h3>
+          <h3 className="[ decoration:underline fs:500 bold ]">Personal <i>(out of worktime)</i> learning</h3>
           <p>My life goals always include self improvement and learning about things that I love such as:</p>
           <ul>
             <li>Improving my understanding of best practices for accessibility through the use of WCAG, A11y, and discord forums</li>
@@ -38,7 +38,7 @@ export default function About() {
 
       <div className="[ even-columns-row ]">
         <div className="[ section__child ][ flow:16 ]">
-          <h3 className="[ decoration:underline fs-500 bold ]">Things that I do stuff with:</h3>
+          <h3 className="[ decoration:underline fs:500 bold ]">Things that I do stuff with:</h3>
           <ul>
             <li>Languages: JavaScript, Typescript, HTML, CSS, SCSS</li>
             <li>Databases: Prisma, Mysql, MongoDB, PostgreSQL</li>

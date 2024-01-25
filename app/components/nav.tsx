@@ -9,12 +9,12 @@ export default function Nav() {
     <header className="[ header ][ flex justify:between align:center ]">
       <Link className="[ logo ][ flex decoration:none ]" to="/">
         <img src={logo} alt="Home" className='[ logo__image ]'/>
-        <h1 className="[ logo__heading ][ fs-300 ]">Coder Carl</h1>
+        <h1 className="[ logo__heading ][ fs:300 ]">Coder Carl</h1>
       </Link>
       <nav className="[ nav ][ even-columns basis:40 ]">
-        <Link className="[ button ][ fs-500 ]" to="#about">About</Link>
-        <Link className="[ button ][ fs-500 ]" to="#projects">Projects</Link>
-        <Link className="[ button ][ fs-500 ]" to="#contact">Contact</Link>
+        <Link className="[ button ][ fs:500 ]" to="#about">About</Link>
+        <Link className="[ button ][ fs:500 ]" to="#projects">Projects</Link>
+        <Link className="[ button ][ fs:500 ]" to="#contact">Contact</Link>
       </nav>
     </header>
   )

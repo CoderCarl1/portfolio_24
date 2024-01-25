@@ -1,8 +1,5 @@
 import { Section } from "@components";
-import { ActionFunctionArgs, redirect } from "@remix-run/node";
 import { Form, useNavigation } from "@remix-run/react";
-
-
 
 export default function Contact() {
   const navigation = useNavigation();
@@ -16,7 +13,7 @@ export default function Contact() {
 
       <Form action="/?index" method="post">
         <fieldset disabled={isSubmitting} className="[ contact__form ]">
-          <legend className="[ contact__form--legend ][ fs-600 ]">Contact Me</legend>
+          <legend className="[ contact__form--legend ][ fs:600 ]">Contact Me</legend>
 
           <div className="[ even-columns-row gap:16 ]">
             <div className="[ input-wrapper floating ]">

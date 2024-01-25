@@ -25,7 +25,7 @@ p,
 caption,
 dd,
 blockquote {
-  max-width: 60ch;
+  max-width: 70ch;
   text-wrap: pretty;
 }
 
@@ -170,13 +170,13 @@ table {
 }
 
 .even-columns {
-  --gap: 1rem;
+  --gap: 1.5rem;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
 }
 .even-columns-row {
-  --gap: 1rem;
+  --gap: 1.5rem;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
@@ -184,6 +184,7 @@ table {
 @media screen and (width < 50em) {
   .even-columns-row {
     grid-auto-flow: row;
+    gap: var(--gap);
   }
 }
 
@@ -293,6 +294,18 @@ table {
   display: grid;
 }
 
+.gap\:8 {
+  gap: 0.5rem;
+}
+
+.gap\:16 {
+  gap: 1rem;
+}
+
+.gap\:24 {
+  gap: 1.5rem;
+}
+
 .align\:center {
   align-items: center;
 }
@@ -309,46 +322,50 @@ table {
   text-transform: uppercase;
 }
 
-span.text-left,
-span.text-center {
+span.text\:left,
+span.text\:center {
   display: block;
 }
 
-.text-left {
+.text\:left {
   text-align: left;
 }
 
-.text-center {
+.text\:center {
   text-align: center;
 }
 
-.fs-900 {
+.bold {
+  font-weight: 700;
+}
+
+.fs\:900 {
   font-size: clamp(2.5rem, 0.5rem + 10vw, 5rem);
   line-height: 1.1;
 }
 
-.fs-800 {
+.fs\:800 {
   font-size: clamp(2.5rem, 0.5rem + 7vw, 3.75rem);
   line-height: 1.1;
 }
 
-.fs-600 {
+.fs\:600 {
   font-size: clamp(1.4rem, 0.5rem + 3vw, 1.6875rem);
 }
 
-.fs-500 {
+.fs\:500 {
   font-size: 1.3125rem;
 }
 
-.fs-400 {
+.fs\:400 {
   font-size: 1.125rem;
 }
 
-.fs-300 {
+.fs\:300 {
   font-size: 1rem;
 }
 
-.fs-200 {
+.fs\:200 {
   font-size: 0.65rem;
 }
 
@@ -372,12 +389,10 @@ span.text-center {
 
 .about__image__random {
   margin-inline: auto;
-  height: 400px;
+  height: clamp(250px, 100%, 400px);
 }
-@media screen and (width > 30em) {
-  .about__image__random {
-    height: 250px;
-  }
+.about__image__random img {
+  height: 100%;
 }
 
 .button {
@@ -443,6 +458,76 @@ span.text-center {
 }
 .button.secondary:hover:not([disabled]) {
   --button-bg-color: rgb(224, 255, 234);
+}
+
+.contact__form {
+  padding: 0.5rem 1rem;
+}
+.contact__form--legend {
+  background-color: white;
+  padding-inline: 0.5rem;
+}
+.contact__form textarea {
+  width: 100%;
+  margin-top: 1rem;
+}
+.contact__form textarea::placeholder {
+  font-size: 125%;
+  opacity: 0.5;
+  top: 0.25em;
+}
+
+.input {
+  padding-top: var(--input-padding-top, 0px);
+  padding-right: var(--input-padding-right, 0px);
+  padding-bottom: var(--input-padding-bottom, 0px);
+  padding-left: var(--input-padding-left, 0px);
+}
+
+.input-wrapper.floating {
+  display: block;
+  position: relative;
+}
+.input-wrapper.floating label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: text;
+  font-size: 75%;
+  opacity: 1;
+  transition: all 0.2s;
+  pointer-events: none;
+}
+.input-wrapper.floating input:focus-within ~ label,
+.input-wrapper.floating input:not(:placeholder-shown) ~ label {
+  color: rgb(67, 49, 155);
+}
+.input-wrapper.floating input:focus-within {
+  color: rgb(153, 153, 153);
+}
+.input-wrapper.floating input {
+  --input-padding-top: 1em;
+  font-size: inherit;
+  margin-bottom: 2px;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 2px solid hsla(0, 0%, 0%, 0.1);
+  width: 100%;
+}
+.input-wrapper.floating input::placeholder {
+  opacity: 1;
+}
+.input-wrapper.floating input:placeholder-shown:not(:focus)::placeholder {
+  opacity: 0;
+}
+.input-wrapper.floating input:placeholder-shown:not(:focus) + * {
+  font-size: 125%;
+  opacity: 0.5;
+  top: 0.25em;
+}
+.input-wrapper.floating input:focus {
+  outline: 1px solid rgba(34, 15, 240, 0.15);
+  border-color: rgb(67, 49, 155);
 }
 
 .hero {
@@ -538,17 +623,16 @@ span.text-center {
 .hero .hero__image--blobs > svg:nth-child(3) {
   fill: var(--blob-color-3);
 }
-.hero:where(:hover, :focus-within) .hero__image:before,
-.hero:where(:hover, :focus-within) .hero__image:after {
+.hero .hero__image:where(:hover, :focus-within):before, .hero .hero__image:where(:hover, :focus-within):after {
   opacity: 1;
 }
-.hero:where(:hover, :focus-within) .hero__image--photo {
+.hero .hero__image:where(:hover, :focus-within) .hero__image--photo {
   transform: scale(105%);
 }
-.hero:where(:hover, :focus-within) .hero__image--blobs {
+.hero .hero__image:where(:hover, :focus-within) .hero__image--blobs {
   transform: translateX(67.5%);
 }
-.hero:where(:hover, :focus-within) .hero__image--blobs > svg {
+.hero .hero__image:where(:hover, :focus-within) .hero__image--blobs > svg {
   opacity: 1;
 }
 @media screen and (width < 50em) {
@@ -572,10 +656,6 @@ span.text-center {
 .header {
   padding: 1rem 0.5rem;
   height: 3rem;
-  position: sticky;
-  top: 0;
-  background-color: rgba(252, 252, 252, 0.75);
-  z-index: 99;
 }
 .header .logo__image {
   width: 64px;
