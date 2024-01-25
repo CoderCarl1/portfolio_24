@@ -8,12 +8,12 @@ export default function About() {
 
   return (
     <Section id="about">
-      <h2 className="[ fs-800 ]">About</h2>
-      <p>I am a Full stack developer with a love 💗 of <span className="[ fun-underline ]">web development</span>, <span className="[ fun-underline ]">Accessibility</span>, and just <span className="[ fun-underline ]">making things fun to use</span>.</p>
+      <h2 className="[ fs-800 bold ]">About</h2>
+      <p className="[ fs-500 ]">I am a Full stack developer with a love 💗 of <span className="[ fun-underline ]">web development</span>, <span className="[ fun-underline ]">Accessibility</span>, and just <span className="[ fun-underline ]">making things fun to use</span>.</p>
 
       <div className="[ even-columns-row ]">
         <div className="[ section__child ][ flow:16 ]">
-          <h3 className="[ underline fs-500 ]">Professional Information</h3>
+          <h3 className="[ decoration:underline fs-500 bold ]">Professional Information</h3>
           <p>For the last year and a half, I have been Working across the Back and Front ends with: </p>
           <ul>
             <li>
@@ -23,20 +23,22 @@ export default function About() {
               Ember.js, HTML and CSS/SASS
             </li>
           </ul>
+          <p>Previously roles required work with Shopify, and wordpress</p>
         </div>
         <div className="[ section__child ][ flow:16 ]">
-          <h3 className="[ decoration:underline fs-500 ]">Personal <i>(out of worktime)</i> learning</h3>
+          <h3 className="[ decoration:underline fs-500 bold ]">Personal <i>(out of worktime)</i> learning</h3>
           <p>My life goals always include self improvement and learning about things that I love such as:</p>
           <ul>
             <li>Improving my understanding of best practices for accessibility through the use of WCAG, A11y, and discord forums</li>
             <li>Prisma, React, Remix Run applications</li>
+            <li>Sourdough</li>
           </ul>
         </div>
       </div>
 
       <div className="[ even-columns-row ]">
         <div className="[ section__child ][ flow:16 ]">
-          <h3 className="[ decoration:underline fs-500 ]">Things that I do stuff with:</h3>
+          <h3 className="[ decoration:underline fs-500 bold ]">Things that I do stuff with:</h3>
           <ul>
             <li>Languages: JavaScript, Typescript, HTML, CSS, SCSS</li>
             <li>Databases: Prisma, Mysql, MongoDB, PostgreSQL</li>
@@ -46,10 +48,10 @@ export default function About() {
           </ul>
         </div>
         <picture className="[ about__image__random ][ margin-x:auto ]">
-          <source media="(max-width: 500px)" srcSet={`${libraries_image_500}`} />
-          <source media="(max-width: 980px)" srcSet={`${libraries_image_250x400}`} />
-          <source media="(min-width: 981px)" srcSet={`${libraries_image_500}`} />
-          <img src={`${libraries_image_500}`} alt="" />
+          <source media="(max-width: 500px)" srcSet={libraries_image_500} />
+          <source media="(max-width: 980px)" srcSet={libraries_image_250x400} />
+          <source media="(min-width: 981px)" srcSet={libraries_image_500} />
+          <img src={libraries_image_500} alt="" />
         </picture>
         {/* <img
           src={libraries_image_250x400}
