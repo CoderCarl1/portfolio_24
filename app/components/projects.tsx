@@ -62,7 +62,7 @@ export default function Projects() {
   }
 
   return (
-    <Section id="projects">
+    <Section id="projects" className="[ container-medium ]">
       <h2 className="[ fs:800 bold ]">Projects</h2>
       <div className="[ projects__wrapper ]" ref={projectsRef}>
         <div role="tablist" aria-label="Project Tabs">
@@ -72,19 +72,19 @@ export default function Projects() {
         </div>
         <div className="[ project__content ]">
           <div id="tabpanel-1" className="[ flow:16 ]" role="tabpanel" tabIndex={0} aria-labelledby="tab-1">
-          <p className="[ bold fs:500 ]">Current: A Rostering app for gardening businesses</p>
+            <p className="[ bold fs:500 ]">Current: A Rostering app for gardening businesses</p>
 
-          <p>code: <a  target="_blank"  href="https://github.com/CoderCarl1/roster/blob/main/README.md" rel="noopener noreferrer">github repo</a></p>
-            
+            <p>code: <a target="_blank" href="https://github.com/CoderCarl1/roster/blob/main/README.md" rel="noopener noreferrer">github repo</a></p>
+
           </div>
           <div id="tabpanel-2" className="[ flow:16 ]" role="tabpanel" tabIndex={0} aria-labelledby="tab-2" hidden>
-          <p className="[ bold fs:500 ]">Accessible React Date + Calendar dropdown Element</p>
-          <p>code: <a  target="_blank"  href="https://github.com/CoderCarl1/portfolio_24" rel="noopener noreferrer">github repo</a></p>
-            
+            <p className="[ bold fs:500 ]">Accessible React Date + Calendar dropdown Element</p>
+            <p>code: <a target="_blank" href="https://github.com/CoderCarl1/portfolio_24" rel="noopener noreferrer">github repo</a></p>
+
           </div>
           <div id="tabpanel-3" className="[ flow:16 ]" role="tabpanel" tabIndex={0} aria-labelledby="tab-3" hidden>
             <p className="[ bold fs:500 ]">This Portfolio</p>
-            <p>code: <a  target="_blank"  href="https://github.com/CoderCarl1/portfolio_24" rel="noopener noreferrer">github repo</a></p>
+            <p>code: <a target="_blank" href="https://github.com/CoderCarl1/portfolio_24" rel="noopener noreferrer">github repo</a></p>
             <p></p>
           </div>
         </div>
