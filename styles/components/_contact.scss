@@ -1,0 +1,20 @@
+@use '../abstracts/' as *;
+
+.contact {
+  &__form {
+    padding: size(8) size(16);
+    &--legend {
+      background-color: white;
+      padding-inline: size(8);
+    }
+    textarea {
+      width: 100%;
+      margin-top: size(16);
+      &::placeholder {
+        font-size: 125%;
+        opacity: 0.5;
+        top: 0.25em;
+      }
+    }
+  }
+}

@@ -2,9 +2,9 @@
 
 .about__image__random {
   margin-inline: auto;
-  height: 400px;
-  @media screen and (width > bp(small)) {
-    height: 250px;
+  height: clamp(250px, 100%, 400px);
+  img {
+    height: 100%;
   }
 }
 

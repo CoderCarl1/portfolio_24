@@ -2,14 +2,18 @@
   text-transform: uppercase;
 }
 
-span.text-left,
-span.text-center {
+span.text\:left,
+span.text\:center {
   display: block;
 }
-.text-left {
+.text\:left {
   text-align: left;
 }
 
-.text-center {
+.text\:center {
   text-align: center;
+}
+
+.bold {
+ font-weight: 700; 
 }

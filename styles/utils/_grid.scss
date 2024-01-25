@@ -1,5 +1,17 @@
+@use '../abstracts/' as *;
+
 .grid {
   display: grid;
+}
+
+.gap\:8 {
+  gap: size(8);
+}
+.gap\:16 {
+  gap: size(16);
+}
+.gap\:24 {
+  gap: size(24);
 }
 
 .align\:center {

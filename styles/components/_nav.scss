@@ -3,10 +3,7 @@
 .header {
   padding: size(16) size(8);
   height: size(48);
-  position: sticky;
-  top: 0;
-  background-color: rgba(clr(neutral, 100), 0.75);
-z-index: 99;
+  
   .logo__image {
     width: 64px;
     aspect-ratio: 1;

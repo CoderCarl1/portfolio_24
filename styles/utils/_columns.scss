@@ -1,10 +1,11 @@
 @use '../abstracts/' as *;
 
 @mixin even-columns {
-  --gap: #{size(16)};
+  --gap: #{size(24)};
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
+
 }
 .even-columns {
   @include even-columns();
@@ -12,6 +13,7 @@
     @include even-columns();
     @media screen and (width < bp(medium)){
       grid-auto-flow: row;
+      gap: var(--gap);
     }
   }
 }

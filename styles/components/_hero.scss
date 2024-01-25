@@ -4,6 +4,7 @@
   --animation-timing: 350ms;
   --height: calc(100dvh - #{size(48)});
   width: 100%;
+  
 
   .hero__text {
     position: relative;
@@ -96,24 +97,26 @@
       }
     }
 
-  }
-  &:where(:hover, :focus-within) {
-    .hero__image:before,
-    .hero__image:after {
-      opacity: 1;
-    }
-    .hero__image--photo {
-      transform: scale(105%);
-    }
-
-    .hero__image--blobs {
-      transform: translateX(67.5%);
-
-      &>svg {
+    &:where(:hover, :focus-within) {
+      &:before,
+      &:after {
         opacity: 1;
       }
+      .hero__image--photo {
+        transform: scale(105%);
+      }
+  
+      .hero__image--blobs {
+        transform: translateX(67.5%);
+  
+        &>svg {
+          opacity: 1;
+        }
+      }
     }
+
   }
+  
 @media screen and (width < bp(medium)){
   .hero__image {
     width: fit-content;
