@@ -1,5 +1,7 @@
 import Home from '~/pages/Home'
 import {ActionFunctionArgs, redirect, type MetaFunction } from "@remix-run/node";
+import sendEmail from '~/[server]/email.server';
+
 export const meta: MetaFunction = () => {
   return [
     { title: "New Remix App" },
@@ -9,12 +11,9 @@ export const meta: MetaFunction = () => {
 
 // Contact Form Submission
 export async function action({request}: ActionFunctionArgs){
-
-  const body = await request.formData();
-  const values = Object.fromEntries(body);
-  // TODO: set up email
-  console.log("formData ", values)
-    return redirect(`/#contact`);
+  const formData = await request.formData();
+  await sendEmail(formData);
+  return redirect(`/#contact`);
 }
 
 export default Home;
