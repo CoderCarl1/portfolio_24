@@ -1,0 +1,58 @@
+@use '../abstracts/' as *;
+
+.input {
+  padding-top: var(--input-padding-top, 0px);
+  padding-right: var(--input-padding-right, 0px);
+  padding-bottom: var(--input-padding-bottom, 0px);
+  padding-left: var(--input-padding-left, 0px);
+}
+
+.input-wrapper.floating {
+  display: block;
+  position: relative;
+
+  label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: text;
+    font-size: 75%;
+    opacity: 1;
+    transition: all 0.2s;
+    pointer-events: none;
+  }
+
+  input:focus-within~label,
+  input:not(:placeholder-shown)~label {
+    color: clr(primary, 200);
+  }
+  input:focus-within {
+    color: clr(neutral, 300);
+  }
+  
+  input {
+    --input-padding-top: 1em;
+    font-size: inherit;
+    margin-bottom: 2px;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid hsla(0, 0%, 0%, 0.1);
+    width: 100%;
+    &::placeholder {
+      opacity: 1;
+    }
+    &:placeholder-shown:not(:focus)::placeholder {
+      opacity: 0;
+    }
+    &:placeholder-shown:not(:focus) + * {
+      font-size: 125%;
+      opacity: 0.5;
+      top: 0.25em;
+    }
+    &:focus {
+      outline: 1px solid clr(primary, 100);
+      border-color: clr(primary, 200);
+    }
+  }
+}
+
