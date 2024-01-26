@@ -49,23 +49,21 @@
 }
 
 .button.primary {
-  --button-bg-color: #{clr(primary, 100)};
-  --button-color: #{clr(primary, 400)};
-  --button-border-color: #{clr(primary, 200)};
-  box-shadow: none;
+  --button-bg-color: #FFF;
+  --button-color: #{clr(primary, 300)};
+  --button-border-color: #{clr(primary, 300)};
 
   &:hover:not([disabled]) {
-    --button-bg-color: #{clr(primary, 100)};
+    --button-border-color: #{clr(primary, 200)};
   }
 }
 
 .button.secondary {
-  --button-bg-color: #{clr(secondary, 200)};
+  --button-bg-color: #FFF;
   --button-color: #{clr(secondary, 400)};
   --button-border-color: #{clr(secondary, 300)};
-  box-shadow: none;
 
   &:hover:not([disabled]) {
-    --button-bg-color: #{clr(secondary, 100)};
+    --button-border-color: #{clr(secondary, 200)};
   }
 }

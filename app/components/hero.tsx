@@ -10,7 +10,7 @@ export default function Hero() {
       
       <div className='[ hero__text ][ text:left fs:800 flow:16 ]'>
         <p>Hi 👋! <span className="text:left">I'm Carl a front-end focused web developer.</span></p>
-        <Link to="#contact" className="[ button ][ fs:500 ]">Contact Me</Link>
+        <Link to="#contact" className="[ button secondary ][ fs:500 ]">Contact Me</Link>
       </div>
       
       <div

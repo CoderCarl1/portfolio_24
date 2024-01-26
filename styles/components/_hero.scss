@@ -4,7 +4,7 @@
   --animation-timing: 350ms;
   --height: calc(100dvh - #{size(48)});
   width: 100%;
-  
+
 
   .hero__text {
     position: relative;
@@ -12,7 +12,7 @@
     padding: size(16) size(16);
     text-align: center;
     width: min(100% - 1em, 20ch);
-    margin-inline: auto;
+
     &:after {
       content: '';
       position: absolute;
@@ -21,6 +21,11 @@
       border-radius: 12px;
       z-index: -1;
     }
+
+    @media screen and (width < bp(large)) {
+      margin-inline: auto;
+    }
+
   }
 
   .hero__image {
@@ -41,6 +46,7 @@
       transition-timing-function: cubic-bezier(0, 0, 0, 2.54);
       mix-blend-mode: hard-light;
     }
+
     &:before {
       inset: 12% 10% 12.5% 10%;
       outline: 8px solid clr(neutral, 100);
@@ -49,6 +55,7 @@
       z-index: 2;
       background-color: clr(secondary, 300);
     }
+
     &:after {
       top: 10%;
       left: 20%;
@@ -59,6 +66,7 @@
       z-index: -1;
       background-color: clr(secondary, 200);
     }
+
     &--photo {
       transition: transform var(--animation-timing) ease-in-out;
     }
@@ -80,12 +88,14 @@
       grid-auto-columns: 1fr;
       // transform-origin: right center;
       transition: transform var(--animation-timing) ease-in-out;
+
       &>svg {
         height: 150%;
         width: 100%;
         opacity: 0;
         transition: opacity var(--animation-timing) ease-in-out;
-        &:nth-child(3){
+
+        &:nth-child(3) {
           opacity: 1;
         }
       }
@@ -98,17 +108,19 @@
     }
 
     &:where(:hover, :focus-within) {
+
       &:before,
       &:after {
         opacity: 1;
       }
+
       .hero__image--photo {
         transform: scale(105%);
       }
-  
+
       .hero__image--blobs {
         transform: translateX(67.5%);
-  
+
         &>svg {
           opacity: 1;
         }
@@ -116,15 +128,17 @@
     }
 
   }
-  
-@media screen and (width < bp(medium)){
-  .hero__image {
-    width: fit-content;
+
+  @media screen and (width < bp(medium)) {
+    .hero__image {
+      width: fit-content;
+    }
+
+    .hero__image--photo {
+      height: 25vh;
+    }
   }
-  .hero__image--photo {
-    height: 25vh;
-  }
-}
+
   @include mq(medium) {
     --flow-spacer: 0;
     height: var(--height, 100dvh);
