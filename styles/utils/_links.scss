@@ -1,0 +1,11 @@
+@use '../abstracts' as *;
+
+.anchor-hash {
+  font-size: 0.5em;
+  color: clr(neutral, 300);
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: clr(primary, 200);
+  } 
+}

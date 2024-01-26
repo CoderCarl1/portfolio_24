@@ -1,14 +1,14 @@
 import { Section } from "@components";
-import libraries_image_250 from '~/images/libraries_250.png'
 import libraries_image_500 from '~/images/libraries_500.png';
 import libraries_image_250x400 from '~/images/libraries_250x400.png';
+import { Link } from "@remix-run/react";
 
 
 export default function About() {
 
   return (
     <Section id="about">
-      <h2 className="[ fs:800 bold ]">About</h2>
+      <h2 className="[ fs:800 bold ]">About <Link className="[ anchor-hash ]" to="/about">#</Link></h2>
       <p className="[ fs:500 ]">I am a Full stack developer with a love 💗 of <span className="[ fun-underline ]">web development</span>, <span className="[ fun-underline ]">Accessibility</span>, and just <span className="[ fun-underline ]">making things fun to use</span>.</p>
 
       <div className="[ even-columns-row ]">
