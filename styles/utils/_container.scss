@@ -12,10 +12,10 @@
 
 .container-medium {
   width: min(100% - 2rem, bp(medium));
-  margin-inline: auto;
+  margin-inline-end: auto;
 }
 
 .container-small {
   width: min(100% - 2rem, bp(small));
-  margin-inline: auto;
+  margin-inline-end: auto;
 }

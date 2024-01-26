@@ -1,25 +1,37 @@
-import Home from '~/pages/Home'
-import {ActionFunctionArgs, redirect, type MetaFunction } from "@remix-run/node";
+import { ActionFunctionArgs, redirect, type MetaFunction } from "@remix-run/node";
 import sendEmail from '~/[server]/email.server';
 import DEVLOGO from '~/images/CD_Dev_Logo_200x200.png';
+import { About, Contact, Hero, Nav, Projects, SkipLink } from "@components";
+import NotFound from "~/components/notFound";
+import { useActionData } from "@remix-run/react";
+import { useEffect, useState } from "react";
+
 
 export const meta: MetaFunction = () => {
   return [
     { title: "Coder Carl's Portfolio" },
     { name: "description", content: "A personal blog / portfolio for Coder Carl." },
-    {name: "og:title", content: "Coder Carl's Portfolio"},
-    {name: "og:url", content: "https://www.codercarl.dev"},
-    {name: "og:description", content: "A personal blog / portfolio for Coder Carl."},
-    {name: "og:image", content: DEVLOGO},
-    {name: "og:type", content: "website"},
-    {name: "og:locale", content: "en-AU"},
+    { name: "keywords", content: "Carl Davidson, Coder Carl, developer, react, accessibility, a11y, html, scss, css, " },
+    { name: "og:title", content: "Coder Carl's Portfolio" },
+    { name: "og:url", content: "https://www.codercarl.dev" },
+    { name: "og:description", content: "A personal blog / portfolio for Coder Carl." },
+    { name: "og:image", content: DEVLOGO },
+    { name: "og:type", content: "website" },
+    { name: "og:locale", content: "en-AU" },
 
   ];
 };
 
+export const statusValues = ["success", "fail"] as const;
+export type statusValueTypes = typeof statusValues[number]
+
 // Contact Form Submission
-export async function action({request}: ActionFunctionArgs){
+export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
+  const { formStatus, errors } = await sendEmail(formData);
+  return {errors, formStatus};  
+}
+
 
 
 export default function Home() {
@@ -69,4 +81,14 @@ export default function Home() {
 }
 
 
-export default Home;
+export function ErrorBoundary() {
+  return (
+    <>
+      <SkipLink />
+      <Nav />
+      <main id="main">
+        <NotFound />
+      </main>
+    </>
+  );
+}
