@@ -4,9 +4,8 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "run-s \"build:*\"",
+    "build": "remix build",
     "build:css": "npm run css -- --style=compressed",
-    "build:remix": "remix build",
     "dev": "run-p \"dev:*\"",
     "dev:css": "npm run css -- --watch",
     "dev:remix": "remix dev",
