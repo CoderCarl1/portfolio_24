@@ -20,10 +20,53 @@ export const meta: MetaFunction = () => {
 // Contact Form Submission
 export async function action({request}: ActionFunctionArgs){
   const formData = await request.formData();
-  const {status} = await sendEmail(formData);
-  // add errors as params to redirect if missing
-  // name, email, message 
-  return redirect(`/#contact`);
+
+
+export default function Home() {
+  const formResult = useActionData<typeof action>();
+  const [formErrors, setFormErrors] = useState<Record<string, string | null>>({...formResult?.errors})
+  const [success, setSuccess] = useState<boolean | null>(null);
+  
+  useEffect(() => {
+    if (formResult) {
+      setFormErrors(formResult.errors ?? {});
+      setSuccess(formResult.formStatus === 'success');
+    }
+  }, [formResult]);
+
+  useEffect(() => {
+    if (success) {
+      const form = document.getElementById('contact__form') as HTMLFormElement;
+      form?.reset();
+      const timer = setTimeout(() => {
+        setSuccess(null); 
+      }, 2500); 
+      return () => clearTimeout(timer);
+    }
+  }, [success]);
+
+
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>){
+    const fieldName = e.currentTarget.name;
+    if (formErrors[fieldName]){
+      setFormErrors(prev =>  ({ ...prev, [fieldName]: null }))
+    }
+    setSuccess(null);
+  }
+
+  return (
+    <>
+      <SkipLink />
+      <Nav />
+      <Hero />
+      <main id="main">
+        <About />
+        <Projects />
+        <Contact errors={formErrors} handleInputChange={handleInputChange} success={success} />
+      </main>
+    </>
+  );
 }
+
 
 export default Home;

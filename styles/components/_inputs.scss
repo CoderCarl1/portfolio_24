@@ -1,10 +1,10 @@
 @use '../abstracts/' as *;
 
 .input {
-  padding-top: var(--input-padding-top, 0px);
-  padding-right: var(--input-padding-right, 0px);
-  padding-bottom: var(--input-padding-bottom, 0px);
-  padding-left: var(--input-padding-left, 0px);
+  padding: 1em 0.5em 0;
+}
+textarea {
+  padding: 0.5em;
 }
 
 .input-wrapper.floating {
@@ -13,7 +13,7 @@
 
   label {
     position: absolute;
-    left: 0;
+    left: 0.5em;
     top: 0;
     cursor: text;
     font-size: 75%;
@@ -27,11 +27,13 @@
     color: clr(primary, 200);
   }
   input:focus-within {
-    color: clr(neutral, 300);
+    color: clr(neutral, 400);
+    &::placeholder {
+      color: clr(neutral, 300);
+    }
   }
   
   input {
-    --input-padding-top: 1em;
     font-size: inherit;
     margin-bottom: 2px;
     border: 0;
@@ -48,6 +50,7 @@
       font-size: 125%;
       opacity: 0.5;
       top: 0.25em;
+      left: 0.25em;
     }
     &:focus {
       outline: 1px solid clr(primary, 100);

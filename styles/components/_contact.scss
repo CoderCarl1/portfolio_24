@@ -3,18 +3,55 @@
 .contact {
   &__form {
     padding: size(8) size(16);
+    position: relative;
     &--legend {
       background-color: white;
       padding-inline: size(8);
     }
+
     textarea {
       width: 100%;
       margin-top: size(16);
+
       &::placeholder {
         font-size: 125%;
         opacity: 0.5;
         top: 0.25em;
       }
+    }
+  }
+}
+
+.contact__form .error {
+  border: 1px solid red !important;
+}
+
+.success {
+
+
+  &.shown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: clr(secondary, 300);
+    background-color: white;
+    outline: 2px solid clr(secondary, 200);
+    padding: 0.5em 2em;
+    font-size: fs(600);
+    border-radius: 4px;
+  }
+}
+
+:where(.contact__form .error_message) {
+  height: 1lh;
+  display: inline-block;
+  min-width: 1px;
+  color: red;
+
+  &.shown {
+    &::after {
+      content: '⚠️';
     }
   }
 }
