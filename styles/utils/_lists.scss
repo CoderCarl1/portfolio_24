@@ -1,0 +1,11 @@
+
+@use '../abstracts/' as *;
+
+
+@media screen and (width < bp(medium)){
+  ul {
+    li:where(:not(:first-child)){
+      margin-top: size(8);
+    }
+  }
+}

@@ -4,10 +4,24 @@ $animation-timing: 250ms;
 
 .section {
   padding: size(16) size(8);
-  .section__child {
 
+  .section__child {
+    border-radius: 8px;
+    padding: 1em;
+    outline: 2px solid clr(secondary, 200);
+
+    &--header {
+      color: clr(accent, 100);
+    }
+
+    &:hover {
+      outline-color: clr(accent, 200);
+    }
   }
 
+  .section__heading {
+    color: clr(neutral, 300);
+  }
 
   // underline stuff 
   .fun-underline {
@@ -33,6 +47,10 @@ $animation-timing: 250ms;
       transform: scaleX(0);
       transition: transform $animation-timing ease-in-out;
       transform-origin: bottom right;
+
+      @media screen and (width < bp(medium)) {
+        height: 0.05lh;
+      }
     }
   }
 
@@ -41,7 +59,7 @@ $animation-timing: 250ms;
       @for $i from 1 through 9 {
         &:nth-child(#{$i}) {
           &:after {
-            transition-delay: ($i - 1) * $animation-timing;
+            transition-delay: $i * $animation-timing;
           }
         }
       }
