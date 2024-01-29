@@ -17,3 +17,18 @@
     }
   }
 }
+
+.columns-content\:left {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @media screen and (width < 62em){
+    grid-template-columns: 1fr
+  }
+  & > * {
+    display: inline-grid;
+    grid-column: span 1;
+    @media screen and (width < bp(small)){
+      margin-inline: auto;
+    }
+  }
+}
