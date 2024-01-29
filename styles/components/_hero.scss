@@ -7,20 +7,10 @@
 
 
   .hero__text {
-    position: relative;
     height: fit-content;
     padding: size(16) size(16);
     text-align: center;
     width: min(100% - 1em, 20ch);
-
-    &:after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-color: rgba(clr(secondary, 100), 0.25);
-      border-radius: 12px;
-      z-index: -1;
-    }
 
     @media screen and (width < bp(large)) {
       margin-inline: auto;

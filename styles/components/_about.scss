@@ -1,10 +1,2 @@
 @use '../abstracts/' as *;
 
-.about__image__random {
-  margin-inline: auto;
-  height: clamp(250px, 100%, 400px);
-  img {
-    height: 100%;
-  }
-}
-
