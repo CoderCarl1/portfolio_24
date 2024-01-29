@@ -30,11 +30,11 @@ export default function Contact({ errors, handleInputChange, success }: contactP
 
   return (
     <Section id="contact" className="[ container-medium ]">
-      <h2 id="contact_header" className="[ fs:800 bold ]">Contact Carl Davidson <Link className="[ anchor-hash ]" to="/contact">#</Link></h2>
+      <h2 id="contact_header" className="[ section__heading ][ fs:800 bold ]">Contact Me <Link className="[ anchor-hash ]" to="/contact">#</Link></h2>
 
       <Form action="/?index" method="post" id="contact__form">
         <fieldset disabled={isSubmitting} className="[ contact__form ][ flow:16 ]">
-          <legend className="[ contact__form--legend ][ fs:600 ]">Contact Me</legend>
+          {/* <legend className="[ contact__form--legend ][ fs:600 ]">Contact Me</legend> */}
           <div className="[ even-columns ]">
             <p className="[ fs-300 italic ]">All fields are required</p>
             <span aria-live="assertive" className={joinClasses('[ success', success ? "shown" : "", " ][ bold ]")}>{success ? 'Success!' : ""}</span>

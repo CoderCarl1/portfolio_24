@@ -189,6 +189,25 @@ table {
   }
 }
 
+.columns-content\:left {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media screen and (width < 62em) {
+  .columns-content\:left {
+    grid-template-columns: 1fr;
+  }
+}
+.columns-content\:left > * {
+  display: inline-grid;
+  grid-column: span 1;
+}
+@media screen and (width < 30em) {
+  .columns-content\:left > * {
+    margin-inline: auto;
+  }
+}
+
 .containing-wrapper {
   width: clamp(280px, 100% - 2rem, 80em);
   margin-inline: auto;
@@ -332,6 +351,11 @@ table {
   color: rgb(67, 49, 155);
 }
 
+@media screen and (width < 50em) {
+  ul li:where(:not(:first-child)) {
+    margin-top: 0.5rem;
+  }
+}
 .margin-x\:auto {
   margin-inline: auto;
 }
@@ -391,6 +415,14 @@ span.text\:center {
   font-size: 0.65rem;
 }
 
+.ff-sans {
+  font-family: Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, sans-serif;
+}
+
+.ff-serif {
+  font-family: ui-serif, Georgia, serif;
+}
+
 .decoration\:underline {
   text-decoration: underline;
 }
@@ -407,14 +439,6 @@ span.text\:center {
   position: absolute;
   white-space: nowrap;
   width: 1px;
-}
-
-.about__image__random {
-  margin-inline: auto;
-  height: clamp(250px, 100%, 400px);
-}
-.about__image__random img {
-  height: 100%;
 }
 
 .button {
@@ -473,11 +497,11 @@ span.text\:center {
 
 .button.secondary {
   --button-bg-color: #FFF;
-  --button-color: rgb(57, 65, 64);
-  --button-border-color: rgb(108, 147, 120);
+  --button-color: #394140;
+  --button-border-color: #6c9378;
 }
 .button.secondary:hover:not([disabled]) {
-  --button-border-color: rgb(155, 233, 204);
+  --button-border-color: #9be9cc;
 }
 
 .contact__form {
@@ -507,9 +531,9 @@ span.text\:center {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: rgb(108, 147, 120);
+  color: #6c9378;
   background-color: white;
-  outline: 2px solid rgb(155, 233, 204);
+  outline: 2px solid #9be9cc;
   padding: 0.5em 2em;
   font-size: clamp(1.4rem, 0.5rem + 3vw, 1.6875rem);
   border-radius: 4px;
@@ -588,19 +612,10 @@ textarea {
   width: 100%;
 }
 .hero .hero__text {
-  position: relative;
   height: fit-content;
   padding: 1rem 1rem;
   text-align: center;
   width: min(100% - 1em, 20ch);
-}
-.hero .hero__text:after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(224, 255, 234, 0.25);
-  border-radius: 12px;
-  z-index: -1;
 }
 @media screen and (width < 80em) {
   .hero .hero__text {
@@ -630,7 +645,7 @@ textarea {
   border-radius: 8px;
   transform: rotate(16deg);
   z-index: 2;
-  background-color: rgb(108, 147, 120);
+  background-color: #6c9378;
 }
 .hero .hero__image:after {
   top: 10%;
@@ -640,14 +655,14 @@ textarea {
   outline: 8px solid white;
   transform: rotate(-25deg);
   z-index: -1;
-  background-color: rgb(155, 233, 204);
+  background-color: #9be9cc;
 }
 .hero .hero__image--photo {
   transition: transform var(--animation-timing) ease-in-out;
 }
 .hero .hero__image--blobs {
   --blob-color-1: #5cdbac;
-  --blob-color-2: rgb(155, 233, 204);
+  --blob-color-2: #9be9cc;
   --blob-color-3: #daf7ec;
   position: absolute;
   z-index: -1;
@@ -735,8 +750,28 @@ textarea {
     flex-basis: 100%;
   }
 }
+.projects__wrapper {
+  border-radius: 8px;
+  padding: 1em;
+  outline: 2px solid #9be9cc;
+}
+
 .section {
   padding: 1rem 0.5rem;
+}
+.section .section__child {
+  border-radius: 8px;
+  padding: 1em;
+  outline: 2px solid #9be9cc;
+}
+.section .section__child--header {
+  color: #1784a8;
+}
+.section .section__child:hover {
+  outline-color: #1EC7FF;
+}
+.section .section__heading {
+  color: rgb(153, 153, 153);
 }
 .section .fun-underline {
   position: relative;
@@ -780,32 +815,37 @@ textarea {
   transition: transform 250ms ease-in-out;
   transform-origin: bottom right;
 }
-.section:where(:focus-within, :hover) .fun-underline:nth-child(1):after {
-  transition-delay: 0ms;
+@media screen and (width < 50em) {
+  .section .fun-underline:after {
+    height: 0.05lh;
+  }
 }
-.section:where(:focus-within, :hover) .fun-underline:nth-child(2):after {
+.section:where(:focus-within, :hover) .fun-underline:nth-child(1):after {
   transition-delay: 250ms;
 }
-.section:where(:focus-within, :hover) .fun-underline:nth-child(3):after {
+.section:where(:focus-within, :hover) .fun-underline:nth-child(2):after {
   transition-delay: 500ms;
 }
-.section:where(:focus-within, :hover) .fun-underline:nth-child(4):after {
+.section:where(:focus-within, :hover) .fun-underline:nth-child(3):after {
   transition-delay: 750ms;
 }
-.section:where(:focus-within, :hover) .fun-underline:nth-child(5):after {
+.section:where(:focus-within, :hover) .fun-underline:nth-child(4):after {
   transition-delay: 1000ms;
 }
-.section:where(:focus-within, :hover) .fun-underline:nth-child(6):after {
+.section:where(:focus-within, :hover) .fun-underline:nth-child(5):after {
   transition-delay: 1250ms;
 }
-.section:where(:focus-within, :hover) .fun-underline:nth-child(7):after {
+.section:where(:focus-within, :hover) .fun-underline:nth-child(6):after {
   transition-delay: 1500ms;
 }
-.section:where(:focus-within, :hover) .fun-underline:nth-child(8):after {
+.section:where(:focus-within, :hover) .fun-underline:nth-child(7):after {
   transition-delay: 1750ms;
 }
-.section:where(:focus-within, :hover) .fun-underline:nth-child(9):after {
+.section:where(:focus-within, :hover) .fun-underline:nth-child(8):after {
   transition-delay: 2000ms;
+}
+.section:where(:focus-within, :hover) .fun-underline:nth-child(9):after {
+  transition-delay: 2250ms;
 }
 .section:where(:focus-within, :hover) .fun-underline:after {
   transform: scaleX(1);

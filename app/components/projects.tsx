@@ -63,7 +63,7 @@ export default function Projects() {
 
   return (
     <Section id="projects" className="[ container-medium ]">
-      <h2 className="[ fs:800 bold ]">Projects <Link className="[ anchor-hash ]" to="/projects">#</Link></h2>
+      <h2 className="[ section__heading ][ fs:800 bold ]">Projects <Link className="[ anchor-hash ]" to="/projects">#</Link></h2>
       <div className="[ projects__wrapper ]" ref={projectsRef}>
         <div role="tablist" aria-label="Project Tabs">
           <button onClick={changeTabs} role="tab" tabIndex={0} aria-selected="false" aria-controls="tabpanel-1" id="tab-1" className="[ project__selector ][ button ]">project1</button>

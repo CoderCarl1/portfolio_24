@@ -25,10 +25,15 @@ export const meta: MetaFunction = () => {
 export const statusValues = ["success", "fail"] as const;
 export type statusValueTypes = typeof statusValues[number]
 
-// Contact Form Submission
+// // Contact Form Submission
 export async function action({ request }: ActionFunctionArgs) {
-  const formData = await request.formData();
-  const { formStatus, errors } = await sendEmail(formData);
+  // const formData = await request.formData();
+  // const { formStatus, errors } = await sendEmail(formData);
+  const errors = { 
+    name: "Name is required",
+  email:  "Email is required",
+  message: "A message is required"};
+  const formStatus = 'success';
   return {errors, formStatus};  
 }
 
