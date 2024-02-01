@@ -15,7 +15,13 @@
   .logo__heading {
     align-self: center;
   }
+
+  .hamburger__button {
+    display: none;
+  }
 }
+
+
 
 @media screen and (width < bp(small)) {
   .header {
@@ -27,4 +33,29 @@
       flex-basis: 100%;
     }
   }
+
+  .hamburger__button {
+    --hamburger-button-clr: #{clr(secondary, 300)};
+    display: inline-block;
+    position: relative;
+    
+    &:hover {
+      --hamburger-button-clr: #{clr(secondary, 200)};
+    }
+  }
+  
+  .hamburger__button--content,
+  .hamburger__button::after,
+  .hamburger__button::before {
+    height: 2px;
+    width: 60%;
+    background-color: var(--hamburger-button-clr);
+    position: absolute;
+  }
+  
+  .hamburger__button::after,
+  .hamburger__button::before {
+    content: "";
+  }
 }
+
