@@ -68,7 +68,9 @@ p {
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }
-
+a:-webkit-any-link:focus {
+  outline-offset: 1px;
+}
 /* Make images easier to work with */
 img,
 picture,

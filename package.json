@@ -1,46 +1,29 @@
 {
-  "name": "2024",
-  "private": true,
-  "sideEffects": false,
-  "type": "module",
+  "name": "2024_static",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "build": "remix build",
-    "build:css": "npm run css -- --style=compressed",
     "dev": "run-p \"dev:*\"",
-    "dev:css": "npm run css -- --watch",
-    "dev:remix": "remix dev",
-    "css": "sass styles/:app/styles/",
-    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "remix-serve ./build/index.js",
-    "typecheck": "tsc"
+    "dev:css": "npm run css:scss -- --watch",
+    "dev:server": "netlify dev",
+    "css": "npm run css:scss && postcss ./public/styles.css -o ./public/styles.css --no-map",
+    "css:scss": "sass styles/:public --style=compressed --no-source-map",
+    "css:autoprefixer": "postcss ./public/styles.css --use autoprefixer -o ./public/styles.css --no-map",
+    "css:minify": "postcss ./public/styles.css --use cssnano -o ./public/styles.css --no-map"
   },
-  "dependencies": {
-    "@remix-run/css-bundle": "^2.5.1",
-    "@remix-run/node": "^2.5.1",
-    "@remix-run/react": "^2.5.1",
-    "@remix-run/serve": "^2.5.1",
-    "@sendgrid/mail": "^8.1.0",
-    "isbot": "^4.1.0",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "cssnano": "^6.0.3",
     "npm-run-all": "^4.1.5",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "postcss": "^8.4.33",
+    "postcss-cli": "^11.0.0",
     "sass": "^1.70.0"
   },
-  "devDependencies": {
-    "@remix-run/dev": "^2.5.1",
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.7.4",
-    "eslint": "^8.38.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "typescript": "^5.1.6"
-  },
-  "engines": {
-    "node": ">=18.0.0"
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.0"
   }
 }

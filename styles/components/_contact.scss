@@ -27,9 +27,7 @@
 }
 
 .success {
-
-
-  &.shown {
+  &[data-hidden="false"] {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -49,9 +47,13 @@
   min-width: 1px;
   color: red;
 
-  &.shown {
+  &[data-hidden="false"] {
     &::after {
       content: '⚠️';
     }
+  }
+  &#message_error {
+    display: block;
+    margin-top: 0;
   }
 }
