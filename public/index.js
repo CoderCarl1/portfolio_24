@@ -2,14 +2,9 @@ const CONTACT_FORM = document.getElementById("contact__form");
 
 const enableForm = () => CONTACT_FORM?.removeAttribute("disabled");
 const disableForm = () => CONTACT_FORM?.setAttribute("disabled", "true");
-const toggleDataHidden = (element, boolean = null) => {
-  if (boolean !== null) {
-    element.dataset.hidden = `${boolean}`;
-    return;
-  }
-  const newValue = element.dataset.hidden === "true" ? "false" : "true"
-  element.dataset.hidden = newValue;
-}
+const showHiddenData = (element) => element.dataset.hidden = 'false';
+const hideHiddenData = (element) => element.dataset.hidden = 'true';
+
 const toggleHamburgerMenu = () => {
   const button = document.querySelector('.hamburger__button');
   const menu = document.getElementById("menu-list");
@@ -26,11 +21,11 @@ function setSubmitted() {
   CONTACT_FORM.reset();
   enableForm();
   const target = document.querySelector('.success');
-  toggleDataHidden(target);
+  showHiddenData(target);
 
   const timer = setTimeout(() => {
     if (target) {
-      toggleDataHidden(target);
+      hideHiddenData(target);
     }
   }, 2500)
 
@@ -49,7 +44,7 @@ function validateFormInput(args) {
       const errorMessageElement = document.getElementById(errorMessageId);
 
       if (errorMessageElement) {
-        toggleDataHidden(errorMessageElement);
+        showHiddenData(errorMessageElement);
         errorMessageElement.innerHTML = `${key} is required`;
       }
     }
@@ -68,7 +63,6 @@ function handleSubmit(event) {
 
   const hasErrors = validateFormInput({ name: name, email: email, message: message });
   if (!hasErrors) {
-    console.log("submitted")
     fetch("/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -79,14 +73,15 @@ function handleSubmit(event) {
         console.log("something went wrong", error)
         setErrorHappened();
       });
-  }
+  } 
+  enableForm();
 }
 function handleInputChange(event) {
   const inputName = event.target.name;
   const errorMessageId = `${inputName}_error`;
   const errorMessageElement = document.getElementById(errorMessageId);
   if (errorMessageElement) {
-    toggleDataHidden(errorMessageElement, true);
+    hideHiddenData(errorMessageElement);
     errorMessageElement.innerHTML = '';
   }
 }
