@@ -13,6 +13,9 @@
 .container-medium {
   width: min(100% - 2rem, bp(medium));
   margin-inline-end: auto;
+  @media screen and (width < bp(medium)) {
+    width: 100%;
+  }
 }
 
 .container-small {

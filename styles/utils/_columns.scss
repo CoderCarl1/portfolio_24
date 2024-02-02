@@ -20,8 +20,8 @@
 
 .columns-content\:left {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  @media screen and (width < 62em){
+  grid-template-columns: 2fr 1fr;
+  @media screen and (width < bp(medium)){
     grid-template-columns: 1fr
   }
   & > * {
