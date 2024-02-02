@@ -45,6 +45,10 @@
   opacity: var(--opacity);
   padding: 0;
   background-color: white;
+  height: 100dvh;
+  z-index: 2;
+  position: relative;
+
 
   li {
     width: 100%;
@@ -55,7 +59,7 @@
    &[data-open="true"]{
     --y: 0;
     --opacity: 1;
-    border: 2px solid clr(secondary,300);
+    // border: 2px solid clr(secondary,300);
    }
  }
   .hamburger__button {
