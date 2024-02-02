@@ -2,7 +2,6 @@ import client from "@sendgrid/mail";
 
 async function sendEmail({ name, email, message }) {
   try {
-    context.log("received contact submission", `name: ${name} - email: ${email} \n ${message} `);
 
     const SENDGRID_API_KEY = Netlify.env.get("SENDGRID_API_KEY");
     const CONTACT_FORM_EMAIL = Netlify.env.get("CONTACT_FORM_EMAIL");
@@ -64,7 +63,6 @@ async function sendEmail({ name, email, message }) {
       throw new Error();
     }
 
-    context.log("success!");
 
     return {
       statusCode: 200,
@@ -74,7 +72,6 @@ async function sendEmail({ name, email, message }) {
     };
 
   } catch (err) {
-    context.log("Failed sending email - dumping error", err)
     return {    
       statusCode: 500,
       body: JSON.stringify({
@@ -90,9 +87,10 @@ async function sendEmail({ name, email, message }) {
 export default async (request, context) => {
   const {name, email, message} = await request.json();
   
-  context.log("email edge func request received", {name, email, message});
+  context.log("received contact submission", `name: ${name} - email: ${email} \n ${message} `);
+
 
   const clientResponse = await sendEmail({name, email, message});
-  context.log("client response => ", clientResponse);
+  context.log("client response => ", clientResponse.statusCode);
   return new Response(clientResponse);
 }
