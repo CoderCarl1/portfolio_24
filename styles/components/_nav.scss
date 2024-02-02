@@ -9,7 +9,7 @@
     width: 64px;
     aspect-ratio: 1;
     &:hover {
-      outline: 1px solid clr(accent,200);
+      outline: 1px solid clr(secondary,200);
       outline-offset: 2px;
     }
     &:active {
