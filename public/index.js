@@ -95,125 +95,126 @@ function handleInputChange(event) {
  * Tab list functions
  */
 
-const PROJECTS = document.getElementById('projectsRef');
-const TABS = [ ...PROJECTS.querySelectorAll('[role="tab"]') ];
-let FOCUSED = false;
-let TABFOCUS = 0;
+// const PROJECTS = document.getElementById('projectsRef');
+// const TABS = [ ...PROJECTS.querySelectorAll('[role="tab"]') ];
+// let FOCUSED = false;
+// let TABFOCUS = 0;
 
-function handleKeyPress(event) {
-  event.preventDefault();
-  const key = event.key;
-  const targetId = TABS[ TABFOCUS ].getAttribute("aria-controls");
-  const target = document.getElementById(targetId);
-  switch (true) {
-    case (key === "ArrowRight" || key === "ArrowLeft"):
-      if (!FOCUSED) {
-        moveFocus(key);
-        focusElement(TABS[ TABFOCUS ]);
-        changeTabs(TABS[ TABFOCUS ]);
-        break;
-      }
-    case (key === "Tab" || key === "Enter"):
-      FOCUSED = true;
-      const targetId = TABS[ TABFOCUS ].getAttribute("aria-controls");
-      const target = document.getElementById(targetId);
-      const elementsArray = [
-        ...(target.querySelectorAll(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        )) ];
+// function handleKeyPress(event) {
+//   event.preventDefault();
+//   const key = event.key;
+//   const targetId = TABS[ TABFOCUS ].getAttribute("aria-controls");
+//   const target = document.getElementById(targetId);
+//   switch (true) {
+//     case (key === "ArrowRight" || key === "ArrowLeft"):
+//       if (!FOCUSED) {
+//         moveFocus(key);
+//         focusElement(TABS[ TABFOCUS ]);
+//         changeTabs(TABS[ TABFOCUS ]);
+//         break;
+//       }
+//     case (key === "Tab" || key === "Enter"):
+//       FOCUSED = true;
+//       const targetId = TABS[ TABFOCUS ].getAttribute("aria-controls");
+//       const target = document.getElementById(targetId);
+//       const elementsArray = [
+//         ...(target.querySelectorAll(
+//           'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+//         )) ];
 
-      if (elementsArray.length) {
-        elementsArray[ 0 ].focus();
-      }
-      document.addEventListener('keydown', trapFocus);
-      break;
-    case key === "Escape":
-      cleanupFocusEventListener();
-      break;
-  }
+//       if (elementsArray.length) {
+//         elementsArray[ 0 ].focus();
+//       }
+//       document.addEventListener('keydown', trapFocus);
+//       break;
+//     case key === "Escape":
+//       cleanupFocusEventListener();
+//       break;
+//   }
 
-}
-function cleanupFocusEventListener(){
-  FOCUSED = false;
-  document.removeEventListener('keydown', trapFocus);
-  focusElement(TABS[ TABFOCUS ]);
-}
-function moveFocus(key) {
-  TABS[ TABFOCUS ].setAttribute("tabindex", "-1");
+// }
+// function cleanupFocusEventListener(){
+//   FOCUSED = false;
+//   document.removeEventListener('keydown', trapFocus);
+//   focusElement(TABS[ TABFOCUS ]);
+// }
+// function moveFocus(key) {
+//   TABS[ TABFOCUS ].setAttribute("tabindex", "-1");
 
-  if (key === "ArrowRight") {
-    TABFOCUS++;
-    if (TABFOCUS >= TABS.length) {
-      TABFOCUS = 0;
-    }
-  } else if (key === "ArrowLeft") {
-    TABFOCUS--;
-    if (TABFOCUS < 0) {
-      TABFOCUS = TABS.length - 1;
-    }
-  }
-}
-function trapFocus(event) {
-  event.preventDefault();
-  if (event.key === 'Escape') {
-    cleanupFocusEventListener();
-    return;
-  }
-  const targetId = TABS[ TABFOCUS ].getAttribute("aria-controls");
-  const target = document.getElementById(targetId);
-  const elementsArray = [
-    ...(target.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    )) ];
+//   if (key === "ArrowRight") {
+//     TABFOCUS++;
+//     if (TABFOCUS >= TABS.length) {
+//       TABFOCUS = 0;
+//     }
+//   } else if (key === "ArrowLeft") {
+//     TABFOCUS--;
+//     if (TABFOCUS < 0) {
+//       TABFOCUS = TABS.length - 1;
+//     }
+//   }
+// }
+// function trapFocus(event) {
+//   event.preventDefault();
+//   if (event.key === 'Escape') {
+//     cleanupFocusEventListener();
+//     return;
+//   }
+//   const targetId = TABS[ TABFOCUS ].getAttribute("aria-controls");
+//   const target = document.getElementById(targetId);
+//   const elementsArray = [
+//     ...(target.querySelectorAll(
+//       'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+//     )) ];
 
-  if (elementsArray.length) {
-    const currentIndex = elementsArray.indexOf(document.activeElement);
-    const lastIndex = elementsArray.length - 1;
-    if (event.shiftKey && currentIndex === 0) {
-      elementsArray[ lastIndex ].focus();
-    } else if (!event.shiftKey && currentIndex === lastIndex) {
-      elementsArray[ 0 ].focus();
-    }
-  }
-}
-function focusElement(target) {
-  target.setAttribute("tabindex", "0");
-  target.focus();
-}
-function changeTabs(target) {
-  const parent = target.parentNode;
-  const grandparent = parent?.parentNode;
-  if (!parent || !grandparent) return;
+//   if (elementsArray.length) {
+//     const currentIndex = elementsArray.indexOf(document.activeElement);
+//     const lastIndex = elementsArray.length - 1;
+//     if (event.shiftKey && currentIndex === 0) {
+//       elementsArray[ lastIndex ].focus();
+//     } else if (!event.shiftKey && currentIndex === lastIndex) {
+//       elementsArray[ 0 ].focus();
+//     }
+//   }
+// }
+// function focusElement(target) {
+//   target.setAttribute("tabindex", "0");
+//   target.focus();
+// }
+// function changeTabs(target) {
+//   const parent = target.parentNode;
+//   const grandparent = parent?.parentNode;
+//   if (!parent || !grandparent) return;
 
-  [ ...parent
-    .querySelectorAll('[aria-selected="true"]') ]
-    .forEach((t) => t.setAttribute("aria-selected", "false"));
+//   [ ...parent
+//     .querySelectorAll('[aria-selected="true"]') ]
+//     .forEach((t) => t.setAttribute("aria-selected", "false"));
 
-  target.setAttribute("aria-selected", "true");
+//   target.setAttribute("aria-selected", "true");
 
-  [ ...grandparent
-    .querySelectorAll('[role="tabpanel"]') ]
-    .forEach((p) => p.setAttribute("hidden", "true"));
+//   [ ...grandparent
+//     .querySelectorAll('[role="tabpanel"]') ]
+//     .forEach((p) => p.setAttribute("hidden", "true"));
 
-  grandparent?.parentNode
-    ?.querySelector(`#${target.getAttribute("aria-controls")}`)
-    ?.removeAttribute("hidden");
-}
+//   grandparent?.parentNode
+//     ?.querySelector(`#${target.getAttribute("aria-controls")}`)
+//     ?.removeAttribute("hidden");
+// }
+
 function init() {
-  const tabList = PROJECTS.querySelector('[role="tablist"]');
-  if (tabList && TABS.length) {
-    TABFOCUS = 0;
+  // const tabList = PROJECTS.querySelector('[role="tablist"]');
+  // if (tabList && TABS.length) {
+  //   TABFOCUS = 0;
 
-    document.addEventListener("click", function (event) {
-      if (FOCUSED && !tabList.contains(event.target)) {
-        FOCUSED = false;
-      }
-    })
-    tabList.addEventListener("keydown", handleKeyPress);
-    [ ...tabList
-      .querySelectorAll('[role="tab"]') ]
-      .forEach(button => button.addEventListener('click', (event) => changeTabs(event.target)));
-  };
+  //   document.addEventListener("click", function (event) {
+  //     if (FOCUSED && !tabList.contains(event.target)) {
+  //       FOCUSED = false;
+  //     }
+  //   })
+  //   tabList.addEventListener("keydown", handleKeyPress);
+  //   [ ...tabList
+  //     .querySelectorAll('[role="tab"]') ]
+  //     .forEach(button => button.addEventListener('click', (event) => changeTabs(event.target)));
+  // };
 
 
   CONTACT_FORM.addEventListener("submit", handleSubmit);
