@@ -1,25 +1,45 @@
 @use '../abstracts/' as *;
 
-.contact {
-  &__form {
+#contact__form {
+  &[disabled="true"] {
+    .input,
+    textarea {
+      background-color: clr(neutral, 200);
+      pointer-events: none;
+      cursor: wait;
+    }
+  }
+}
+.contact__form {
     padding: size(8) size(16);
     position: relative;
+    border-radius: 8px;
     &--legend {
       background-color: white;
       padding-inline: size(8);
     }
 
+    .input,
+    textarea {
+      &:hover {
+        border-color:clr(primary, 200);
+      }
+      
+    }
     textarea {
       width: 100%;
       margin-top: size(16);
-
+      border: 1px solid clr(neutral, 200);
+      border-radius: 4px;
       &::placeholder {
         font-size: 125%;
         opacity: 0.5;
         top: 0.25em;
       }
     }
-  }
+    .button[type="submit"] {
+      margin-top: 0.25em;
+    }
 }
 
 .contact__form .error {
@@ -54,6 +74,6 @@
   }
   &#message_error {
     display: block;
-    margin-top: 0;
+    margin-top: -4px;
   }
 }
