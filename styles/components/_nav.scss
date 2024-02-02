@@ -5,27 +5,18 @@
   height: size(48);
   
   .logo {
-    color: clr(primary,200);
-    &:hover {
-      color: clr(accent,100);
-    }
-  }
-  .logo__image {
+    border-radius: 50%;
     width: 64px;
     aspect-ratio: 1;
-    img {
-      transform: translateY(-0.5em);
-
+    &:hover {
+      outline: 1px solid clr(accent,200);
+      outline-offset: 2px;
     }
-  }
-  .logo__heading {
-    align-self: center;
-    font-family: ui-serif,Georgia,serif;
-    font-weight: 700;
-    color: inherit;
-  }
-
-  
+    &:active {
+      outline: 3px solid clr(secondary,200);
+      outline-offset: 1px;
+    }
+  }  
 }
 
 .hamburger__button {
