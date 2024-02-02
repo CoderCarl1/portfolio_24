@@ -4,6 +4,12 @@
   padding: size(16) size(8);
   height: size(48);
   
+  .logo {
+    color: clr(primary,200);
+    &:hover {
+      color: clr(accent,100);
+    }
+  }
   .logo__image {
     width: 64px;
     aspect-ratio: 1;
@@ -14,6 +20,9 @@
   }
   .logo__heading {
     align-self: center;
+    font-family: monospace;
+    font-weight: 700;
+    color: inherit;
   }
 
   
@@ -59,7 +68,6 @@
    &[data-open="true"]{
     --y: 0;
     --opacity: 1;
-    // border: 2px solid clr(secondary,300);
    }
  }
   .hamburger__button {
