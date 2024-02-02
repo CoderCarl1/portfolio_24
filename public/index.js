@@ -10,6 +10,18 @@ const toggleDataHidden = (element, boolean = null) => {
   const newValue = element.dataset.hidden === "true" ? "false" : "true"
   element.dataset.hidden = newValue;
 }
+const toggleHamburgerMenu = () => {
+  const button = document.querySelector('.hamburger__button');
+  const menu = document.getElementById("menu-list");
+  const expanded = button.getAttribute("aria-expanded") === "true" || false;
+  button.setAttribute("aria-expanded", !expanded);
+
+  menu.dataset.open = !expanded;
+}
+/**
+ * Form stuff
+ */
+
 function setSubmitted() {
   CONTACT_FORM.reset();
   enableForm();
@@ -212,6 +224,12 @@ function init() {
       target.addEventListener('change', handleInputChange);
     }
   })
+
+  const menuButton = document.querySelector('.hamburger__button');
+  const menuLinks = [...document.getElementById('menu-list').querySelectorAll('a')];
+
+  menuButton.addEventListener('click', toggleHamburgerMenu);
+  menuLinks.forEach(link => link.addEventListener('click', toggleHamburgerMenu))
 }
 
 init();

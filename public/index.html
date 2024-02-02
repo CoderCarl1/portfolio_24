@@ -33,14 +33,23 @@
   </div>
   <header class="[ header ][ flex justify:between align:center ]">
     <a class="[ logo ][ flex decoration:none ]" href="/">
-      <img src="./images/CD_Dev_Logo_200x200.png" alt="Home" class='[ logo__image ]' >
+      <img src="./images/CD_Dev_Logo_200x200.png" alt="Home" class='[ logo__image ]'>
       <h1 class="[ logo__heading ][ fs:300 ]">Coder Carl</h1>
     </a>
-    <button class="[ hamburger__button ][ button ]"><span class="visually-hidden">menu</span><span class="hamburger__button--content"></span></button>
-    <nav class="[ nav ][ even-columns basis:40 ]">
-      <a class="[ button ][ fs:500 ]" href="#about">About</a>
-      <a class="[ button ][ fs:500 ]" href="#projects">Projects</a>
-      <a class="[ button ][ fs:500 ]" href="#contact">Contact</a>
+    <button class="[ hamburger__button ][ button ]" aria-expanded="false" aria-controls="menu-list"><span
+        class="visually-hidden">menu</span><span class="hamburger__button--content"></span></button>
+    <nav class="[ nav ][ basis:40 ]">
+      <ul class="[ even-columns ]"  id="menu-list" data-open="false" role="list">
+        <li>
+          <a class="[ button ][ fs:500 ]" href="#about">About</a>
+        </li>
+        <li>
+          <a class="[ button ][ fs:500 ]" href="#projects">Projects</a>
+        </li>
+        <li>
+          <a class="[ button ][ fs:500 ]" href="#contact">Contact</a>
+        </li>
+      </ul>
     </nav>
   </header>
   <div class="[ hero ][ container-medium flow even-columns-row ][ align:center ]">
@@ -74,115 +83,125 @@
     </div>
   </div>
   <main id="main">
-  <section id="about" class="[ section ][ flow:32 ]">
-    <h2 class="[ section__heading ][ fs:800 bold ]">About <a class="[ anchor-hash ]" href="/about">#</a></h2>
-    <p class="[ fs:500 ]">I am a Full stack developer with a love 💗 of <span class="[ fun-underline ]">web development</span>, <span class="[ fun-underline ]">Accessibility</span>, and just <span class="[ fun-underline ]">making things fun to use</span>.</p>
+    <section id="about" class="[ section ][ flow:32 ]">
+      <h2 class="[ section__heading ][ fs:800 bold ]">About <a class="[ anchor-hash ]" href="/about">#</a></h2>
+      <p class="[ fs:500 ]">I am a Full stack developer with a love 💗 of <span class="[ fun-underline ]">web
+          development</span>, <span class="[ fun-underline ]">Accessibility</span>, and just <span
+          class="[ fun-underline ]">making things fun to use</span>.</p>
 
-    <div class="[ columns-content:left ]">
-      <div class="[ flow:32 ]">
-        <div class="[ section__child ][ flow:16 ]">
-          <h3 class="[ section__child--header ][ ff-serif fs:500 bold ]">Professional Information</h3>
-          <p>For the last year and a half, I have been Working across the Back and Front ends with: </p>
-          <ul>
-            <li>
-              AWS Lambda (Node.js), DynamoDB, SQS, MySQL
-            </li>
-            <li>
-              Ember.js, HTML and CSS/SASS
-            </li>
-          </ul>
-          <p>Previously roles required work with Shopify, and wordpress</p>
-        </div>
-        <div class="[ section__child ][ flow:16 ]">
-          <h3 class="[ section__child--header ][ ff-serif fs:500 bold ]">Personal <i>(out of worktime)</i> learning</h3>
-          <p>My life goals always include self improvement and learning about things that I love such as:</p>
-          <ul>
-            <li>Improving my understanding of best practices for accessibility through the use of WCAG, A11y, and discord forums</li>
-            <li>Prisma, React, Remix Run applications</li>
-            <li>Sourdough</li>
-          </ul>
-        </div>
-        <div class="[ section__child ][ flow:16 ]">
-          <h3 class="[ section__child--header ][ ff-serif fs:500 bold ]">Things that I do stuff with:</h3>
-          <ul>
-            <li>Languages: JavaScript, Typescript, HTML, CSS, SCSS</li>
-            <li>Databases: Prisma, Mysql, MongoDB, PostgreSQL</li>
-            <li>Frameworks/Libraries: Express, React, Node, Remix Run</li>
-            <li>Developer Tools: Accessibility / Aria, Git, Figma, AWS S3, Linux, TDD</li>
-            <li>Testing: Jest, Cypress, Mocha, Storybook</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="projects" class="[ section ][ flow:32 container-medium ]">
-    <h2 class="[ section__heading ][ fs:800 bold ]">Projects <a class="[ anchor-hash ]" href="/projects">#</a></h2>
-    <div class="[ projects__wrapper ]" id="projectsRef">
-      <div role="tablist" aria-label="Project Tabs">
-        <button role="tab" tabindex="0" aria-selected="false" aria-controls="tabpanel-1" id="tab-1" class="[ project__selector ][ button ]">project1</button>
-        <button role="tab" tabindex="-1" aria-selected="false" aria-controls="tabpanel-2" id="tab-2" class="[ project__selector ][ button ]">project2</button>
-        <button role="tab" tabindex="-1" aria-selected="false" aria-controls="tabpanel-3" id="tab-3" class="[ project__selector ][ button ]">This Portfolio</button>
-      </div>
-      <div class="[ project__content ]">
-        <div id="tabpanel-1" class="[ flow:16 ]" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
-          <p class="[ bold fs:500 ]">Current: A Rostering app for gardening businesses</p>
-
-          <p>code: <a target="_blank" href="https://github.com/CoderCarl1/roster/blob/main/README.md" rel="noopener noreferrer">github repo</a></p>
-
-        </div>
-        <div id="tabpanel-2" class="[ flow:16 ]" role="tabpanel" tabindex="0" aria-labelledby="tab-2" hidden>
-          <p class="[ bold fs:500 ]">Accessible React Date + Calendar dropdown Element</p>
-          <p>code: <a target="_blank" href="https://github.com/CoderCarl1/portfolio_24" rel="noopener noreferrer">github repo</a></p>
-
-        </div>
-        <div id="tabpanel-3" class="[ flow:16 ]" role="tabpanel" tabindex="0" aria-labelledby="tab-3" hidden>
-          <p class="[ bold fs:500 ]">This Portfolio</p>
-          <p>code: <a target="_blank" href="https://github.com/CoderCarl1/portfolio_24" rel="noopener noreferrer">github repo</a></p>
-          <p></p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="contact" class="[ section ][ flow:32 container-medium ]">
-    <noscript>The contact form will still submit without Javascript enabled but you may be missing some feedback upon
-      submission</noscript>
-    <h2 id="contact_header" class="[ section__heading ][ fs:800 bold ]">Contact Me
-      <a class="[ anchor-hash ]" href="/contact">#</a>
-    </h2>
-    <form name="contact__form" data-netlify=true id="contact__form">
-      <fieldset class="[ contact__form ][ flow:16 ]">
-        <div class="[ even-columns ]">
-          <p class="[ fs-300 italic ]">All fields are required</p>
-          <span aria-live="assertive" class="[ success ][ bold ]" data-hidden="true">Success!</span>
-        </div>
-        <div class="[ even-columns-row gap:16 ]">
-          <div class="[ input-wrapper floating ]">
-            <input type="text" name="name" id="name" placeholder="Name" autoCapitalize="words"
-              class="contact__form--name input" aria-required="true" aria-invalid="false"
-              aria-describedby="name_label name_error" autoComplete="name">
-            <label id="name_label" for="name">Name</label>
-            <span id="name_error" class="[ error_message ]" data-hidden="true"></span>
+      <div class="[ columns-content:left ]">
+        <div class="[ flow:32 ]">
+          <div class="[ section__child ][ flow:16 ]">
+            <h3 class="[ section__child--header ][ ff-serif fs:500 bold ]">Professional Information</h3>
+            <p>For the last year and a half, I have been Working across the Back and Front ends with: </p>
+            <ul>
+              <li>
+                AWS Lambda (Node.js), DynamoDB, SQS, MySQL
+              </li>
+              <li>
+                Ember.js, HTML and CSS/SASS
+              </li>
+            </ul>
+            <p>Previously roles required work with Shopify, and wordpress</p>
           </div>
-          <div class="[ input-wrapper floating ]">
-            <input type="email" name="email" id="email" placeholder="email@example.com"
-              class="contact__form--email input" aria-required="true" aria-describedby="email_label email_error"
-              autoComplete="email" aria-invalid="false">
-            <label id="email_label" for="email">Email</label>
-            <span id="email_error" class="[ error_message ]" data-hidden="true"></span>
+          <div class="[ section__child ][ flow:16 ]">
+            <h3 class="[ section__child--header ][ ff-serif fs:500 bold ]">Personal <i>(out of worktime)</i> learning
+            </h3>
+            <p>My life goals always include self improvement and learning about things that I love such as:</p>
+            <ul>
+              <li>Improving my understanding of best practices for accessibility through the use of WCAG, A11y, and
+                discord forums</li>
+              <li>Prisma, React, Remix Run applications</li>
+              <li>Sourdough</li>
+            </ul>
+          </div>
+          <div class="[ section__child ][ flow:16 ]">
+            <h3 class="[ section__child--header ][ ff-serif fs:500 bold ]">Things that I do stuff with:</h3>
+            <ul>
+              <li>Languages: JavaScript, Typescript, HTML, CSS, SCSS</li>
+              <li>Databases: Prisma, Mysql, MongoDB, PostgreSQL</li>
+              <li>Frameworks/Libraries: Express, React, Node, Remix Run</li>
+              <li>Developer Tools: Accessibility / Aria, Git, Figma, AWS S3, Linux, TDD</li>
+              <li>Testing: Jest, Cypress, Mocha, Storybook</li>
+            </ul>
           </div>
         </div>
+      </div>
+    </section>
+    <section id="projects" class="[ section ][ flow:32 container-medium ]">
+      <h2 class="[ section__heading ][ fs:800 bold ]">Projects <a class="[ anchor-hash ]" href="/projects">#</a></h2>
+      <div class="[ projects__wrapper ]" id="projectsRef">
+        <div role="tablist" aria-label="Project Tabs">
+          <button role="tab" tabindex="0" aria-selected="false" aria-controls="tabpanel-1" id="tab-1"
+            class="[ project__selector ][ button ]">project1</button>
+          <button role="tab" tabindex="-1" aria-selected="false" aria-controls="tabpanel-2" id="tab-2"
+            class="[ project__selector ][ button ]">project2</button>
+          <button role="tab" tabindex="-1" aria-selected="false" aria-controls="tabpanel-3" id="tab-3"
+            class="[ project__selector ][ button ]">This Portfolio</button>
+        </div>
+        <div class="[ project__content ]">
+          <div id="tabpanel-1" class="[ flow:16 ]" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+            <p class="[ bold fs:500 ]">Current: A Rostering app for gardening businesses</p>
 
-        <textarea class="contact__form--message" name="message" id="message" cols="30" rows="10"
-          placeholder="your message..." aria-required="true" aria-invalid="false" aria-describedby="message_error"
-          autoCapitalize="sentences"></textarea>
-        <span id="message_error" class="[ error_message ]" data-hidden="true"></span>
+            <p>code: <a target="_blank" href="https://github.com/CoderCarl1/roster/blob/main/README.md"
+                rel="noopener noreferrer">github repo</a></p>
 
-        <button class="[ button ][ text:center ]" type="submit">Send</button>
+          </div>
+          <div id="tabpanel-2" class="[ flow:16 ]" role="tabpanel" tabindex="0" aria-labelledby="tab-2" hidden>
+            <p class="[ bold fs:500 ]">Accessible React Date + Calendar dropdown Element</p>
+            <p>code: <a target="_blank" href="https://github.com/CoderCarl1/portfolio_24"
+                rel="noopener noreferrer">github repo</a></p>
 
-      </fieldset>
+          </div>
+          <div id="tabpanel-3" class="[ flow:16 ]" role="tabpanel" tabindex="0" aria-labelledby="tab-3" hidden>
+            <p class="[ bold fs:500 ]">This Portfolio</p>
+            <p>code: <a target="_blank" href="https://github.com/CoderCarl1/portfolio_24"
+                rel="noopener noreferrer">github repo</a></p>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="[ section ][ flow:32 container-medium ]">
+      <noscript>The contact form will still submit without Javascript enabled but you may be missing some feedback upon
+        submission</noscript>
+      <h2 id="contact_header" class="[ section__heading ][ fs:800 bold ]">Contact Me
+        <a class="[ anchor-hash ]" href="/contact">#</a>
+      </h2>
+      <form name="contact__form" data-netlify=true id="contact__form">
+        <fieldset class="[ contact__form ][ flow:16 ]">
+          <div class="[ even-columns ]">
+            <p class="[ fs-300 italic ]">All fields are required</p>
+            <span aria-live="assertive" class="[ success ][ bold ]" data-hidden="true">Success!</span>
+          </div>
+          <div class="[ even-columns-row gap:16 ]">
+            <div class="[ input-wrapper floating ]">
+              <input type="text" name="name" id="name" placeholder="Name" autoCapitalize="words"
+                class="contact__form--name input" aria-required="true" aria-invalid="false"
+                aria-describedby="name_label name_error" autoComplete="name">
+              <label id="name_label" for="name">Name</label>
+              <span id="name_error" class="[ error_message ]" data-hidden="true"></span>
+            </div>
+            <div class="[ input-wrapper floating ]">
+              <input type="email" name="email" id="email" placeholder="email@example.com"
+                class="contact__form--email input" aria-required="true" aria-describedby="email_label email_error"
+                autoComplete="email" aria-invalid="false">
+              <label id="email_label" for="email">Email</label>
+              <span id="email_error" class="[ error_message ]" data-hidden="true"></span>
+            </div>
+          </div>
 
-    </form>
-  </section>
-</main>
+          <textarea class="contact__form--message" name="message" id="message" cols="30" rows="10"
+            placeholder="your message..." aria-required="true" aria-invalid="false" aria-describedby="message_error"
+            autoCapitalize="sentences"></textarea>
+          <span id="message_error" class="[ error_message ]" data-hidden="true"></span>
+
+          <button class="[ button ][ text:center ]" type="submit">Send</button>
+
+        </fieldset>
+
+      </form>
+    </section>
+  </main>
 </body>
 </html>
