@@ -28,9 +28,9 @@ async function sendEmail({ name, email, message }) {
     client.setApiKey(SENDGRID_API_KEY || "");
 
     const mailOptions = {
-      to: CONTACT_FORM_EMAIL,
-      cc: email,
-      from: CONTACT_FORM_EMAIL,
+      to: email,
+      bcc: CONTACT_FORM_EMAIL,
+      from: 'carl.davidson@hotmail.com',
       subject: "Email from Coder Carl",
       text: `${name} sent email from ${email} : ${message}`,
       html: `
@@ -60,7 +60,7 @@ async function sendEmail({ name, email, message }) {
     const statusCode = response[ 0 ].statusCode;
 
     if (!statusCode || statusCode !== 202) {
-      throw new Error();
+      throw new Error({...response[ 0 ]});
     }
 
 
