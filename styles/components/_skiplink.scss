@@ -4,8 +4,9 @@
   position: fixed;
   transition: transform 250ms ease;
   z-index: 1;
+  font-size: fs(600);
   a {
-    padding: size(8) size(16);
+    padding: size(16);
     background-color: clr(neutral, 100);
   }
   a:focus {
