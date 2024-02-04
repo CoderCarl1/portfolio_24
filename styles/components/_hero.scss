@@ -2,10 +2,7 @@
 
 .hero {
   --animation-timing: 350ms;
-  --height: calc(100dvh - #{size(48)});
   width: 100%;
-
-
   .hero__text {
     height: fit-content;
     padding: size(16) size(16);
@@ -15,7 +12,6 @@
     @media screen and (width < bp(large)) {
       margin-inline: auto;
     }
-
   }
 
   .hero__image {
@@ -131,17 +127,6 @@
 
   @include mq(medium) {
     --flow-spacer: 0;
-    height: var(--height, 100dvh);
-
-    .hero__text {
-      &:after {
-        background-color: transparent;
-        // box-shadow:
-        //   -2px 0px 0px 0px clr(secondary, 100),
-        //   -4px 0px 0px 0px clr(secondary, 200),
-        //   -6px 0px 0px 0px clr(secondary, 100);
-      }
-
-    }
+    --button-padding: 0.75em 1em;
   }
 }

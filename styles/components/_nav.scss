@@ -4,16 +4,20 @@
   padding: size(16) size(8);
   height: size(48);
   
+  #menu-list {
+    --button-padding: 0.75em 1em;
+  }
+
   .logo {
     border-radius: 50%;
     width: 64px;
+    @include mq(medium){
+      width: 128px;
+    };
     aspect-ratio: 1;
-    &:hover {
-      outline: 1px solid clr(secondary,200);
-      outline-offset: 2px;
-    }
-    &:active {
-      outline: 3px solid clr(secondary,200);
+    &:active,
+    &:focus-visible {
+      outline: 2px solid clr(secondary,200);
       outline-offset: 1px;
     }
   }  
