@@ -4,3 +4,12 @@ body {
   font-size: fs(400);
   padding-top: size(16);
 }
+
+/**
+  keyboard navigation outlines. Only applies when they are focused.
+*/
+main,
+section {
+  outline-offset: 4px;
+  outline-color: clr(primary, 200);
+}
