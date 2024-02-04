@@ -1,10 +1,21 @@
 @use '../abstracts/' as *;
-
-$animation-timing: 250ms;
+$animation-timing: 350ms;
+$animation-timing-delay: 450ms;
 
 .section {
   padding: size(16) size(8);
 
+  &:hover, &:focus-within {
+    .section__heading[data-heading]{
+      .section__heading--text {
+        height: 0;
+      }
+      &::before {
+        color: white;
+        height: 100%;
+      }
+    }
+  }
   .section__child {
     border-radius: 8px;
     padding: 1em;
@@ -19,19 +30,59 @@ $animation-timing: 250ms;
     }
   }
 
-  .section__heading {
-    color: clr(neutral, 300);
+  .section__heading{
+    --anchor-color: clr(secondary, 200);
+    display: flex;
+    gap: 1ch;
+    color: clr(neutral, 200);
+    position: relative;
+    height: clamp(2.5rem,.5rem + 7vw,3.75rem);
+    font-size: clamp(2.5rem,.5rem + 7vw,3.75rem);
+
+    
+    &[data-heading]::before,
+    .section__heading--text,
+    .anchor-hash {
+      font-size: 1em;
+      line-height: 1.1;
+      font-weight: 700;
+      height: clamp(2.5rem,.5rem + 7vw,3.75rem);
+    }
+    &[data-heading]::before,
+    .section__heading--text {
+      padding-inline: 0.5ch;
+      transition: height $animation-timing ease-in-out;
+      overflow: hidden;
+    }
+
+    &--text {
+      transform-origin: bottom;
+    }
+
+   &[data-heading]::before {
+    content: attr(data-heading);
+    z-index: -1;
+    height: 0;
+    width: fit-content;
+    position: absolute;
+    top: 0;
+    transform-origin: top;
+    background-color: clr(secondary, 200);
+    color: transparent;
+   } 
   }
 
-  // underline stuff 
+  /** 
+    underline stuff 
+  */
   .fun-underline {
-
     position: relative;
     display: inline-block;
 
     @for $i from 1 through 9 {
       &:nth-child(#{$i}) {
         &:after {
+          
           background-color: clr(random, $i * 100);
         }
       }
@@ -59,7 +110,7 @@ $animation-timing: 250ms;
       @for $i from 1 through 9 {
         &:nth-child(#{$i}) {
           &:after {
-            transition-delay: $i * $animation-timing;
+            transition-delay: $i * $animation-timing-delay;
           }
         }
       }
