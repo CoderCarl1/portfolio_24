@@ -182,6 +182,9 @@
           <fieldset class="[ contact__form ][ flow:16 ]">
             <p class="[ fs-300 italic ]">All fields are required</p>
             <span aria-live="assertive" class="[ success ][ bold ]" data-hidden="true">Success!</span>
+            <span aria-live="assertive" class="[ submission__error ][ bold ]" data-hidden="true">Something went wrong!
+              <button class="[ submission__error--button ][ button ]" type="reset">refresh form</button>
+            </span>
             <div class="[ even-columns-row gap:16 ]">
               <div class="[ input-wrapper floating ]">
                 <input type="text" name="name" id="name" placeholder="Name" autoCapitalize="words"

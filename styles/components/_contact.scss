@@ -52,6 +52,7 @@
   border: 1px solid red !important;
 }
 
+.submission__error,
 .success {
   position: absolute;
   top: 50%;
@@ -61,7 +62,6 @@
   background-color: white;
   font-size: fs(600);
   border-radius: 4px;
-
   &[data-hidden="true"] {
     clip: rect(0 0 0 0); 
     clip-path: inset(50%);
@@ -71,9 +71,21 @@
     width: 1px;
   }
   &[data-hidden="false"] {
-    outline: 2px solid clr(secondary, 200);
     padding: 0.5em 2em;
     z-index: 1;
+  }
+}
+
+.submission__error {
+  &[data-hidden="false"] {
+    outline: 2px solid red;
+  }
+}
+
+
+.success {
+  &[data-hidden="false"] {
+    outline: 2px solid clr(secondary, 200);
   }
 }
 

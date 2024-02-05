@@ -85,12 +85,16 @@ async function sendEmail({ name, email, message }) {
 
 
 export default async (request, context) => {
-  const {name, email, message} = await request.json();
-  
-  context.log("received contact submission", `name: ${name} - email: ${email} \n ${message} `);
-
-
-  const clientResponse = await sendEmail({name, email, message});
-  context.log("client response => ", clientResponse.statusCode);
-  return new Response(clientResponse);
+  try {
+    if (!request.body) return Response.redirect('/');
+    
+    const {name, email, message} = await request.json();
+    if (!name || !email || !message) throw new Error("missing something");
+      context.log("received contact submission", `name: ${name} - email: ${email} \n message: ${message} `);
+      const clientResponse = await sendEmail({name, email, message});
+      context.log("client response => ", clientResponse.statusCode);
+      return new Response(clientResponse);
+  } catch (err) {
+    context.log("Error in data received by client", err)
+  }
 }

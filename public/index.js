@@ -53,11 +53,13 @@ function validateFormInput(args) {
 }
 function setErrorHappened() {
   disableForm();
-  // TODO: add reset
+  showHiddenData(document.querySelector('.submission__error'));
+  
 }
 function handleSubmit(event) {
   event.preventDefault();
   disableForm();
+
   const formData = new FormData(event.target);
   const { name, email, message } = Object.fromEntries(formData);
 
@@ -213,6 +215,12 @@ function init() {
 
 
   CONTACT_FORM.addEventListener("submit", handleSubmit);
+  const submissionErrorBox = document.querySelector('.submission__error');
+  const submissionErrorBoxButton = submissionErrorBox.querySelector('.submission__error--button');
+  submissionErrorBoxButton.addEventListener('click', () => {
+    hideHiddenData(submissionErrorBox);
+    enableForm();
+  } );
 
   [ 'name', 'email', 'message' ].forEach(inputName => {
     const target = CONTACT_FORM.querySelector(`.contact__form--${inputName}`)
