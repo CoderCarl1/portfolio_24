@@ -53,17 +53,27 @@
 }
 
 .success {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: clr(secondary, 300);
+  background-color: white;
+  font-size: fs(600);
+  border-radius: 4px;
+
+  &[data-hidden="true"] {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap; 
+    width: 1px;
+  }
   &[data-hidden="false"] {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: clr(secondary, 300);
-    background-color: white;
     outline: 2px solid clr(secondary, 200);
     padding: 0.5em 2em;
-    font-size: fs(600);
-    border-radius: 4px;
+    z-index: 1;
   }
 }
 
